@@ -4,6 +4,9 @@ document.addEventListener("DOMContentLoaded", () => {
   // ====================
   // Google Analytics Measurement ID
   const GA_MEASUREMENT_ID = 'G-7HMEBM3RC9';
+  
+  // DEBUG MODE: Set to true to load GA for Tag Assistant testing (disable in production!)
+  const DEBUG_MODE = false; // Set to true only for testing with Tag Assistant
 
   // Initialize gtag function if not already defined
   window.dataLayer = window.dataLayer || [];
@@ -49,7 +52,11 @@ document.addEventListener("DOMContentLoaded", () => {
   const analyticsEnabled = localStorage.getItem("cookie-analytics-enabled") === "true";
   const marketingEnabled = localStorage.getItem("cookie-marketing-enabled") === "true";
 
-  if (existingConsent === "all") {
+  // DEBUG MODE: Load GA for Tag Assistant testing (without consent)
+  if (DEBUG_MODE) {
+    updateConsentMode(true, true);
+    loadGoogleAnalytics();
+  } else if (existingConsent === "all") {
     // User previously accepted all cookies
     updateConsentMode(true, true);
     loadGoogleAnalytics();
