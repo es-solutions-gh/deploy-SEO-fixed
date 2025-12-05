@@ -1,5 +1,67 @@
 document.addEventListener("DOMContentLoaded", () => {
   // ====================
+  // GOOGLE CONSENT MODE & ANALYTICS
+  // ====================
+  // Google Analytics Measurement ID
+  const GA_MEASUREMENT_ID = 'G-7HMEBM3RC9';
+
+  // Initialize gtag function if not already defined
+  window.dataLayer = window.dataLayer || [];
+  function gtag() { dataLayer.push(arguments); }
+  window.gtag = gtag;
+
+  // Function to update Consent Mode based on user preferences
+  function updateConsentMode(analyticsGranted, marketingGranted) {
+    const consentParams = {
+      ad_user_data: marketingGranted ? 'granted' : 'denied',
+      ad_personalization: marketingGranted ? 'granted' : 'denied',
+      ad_storage: marketingGranted ? 'granted' : 'denied',
+      analytics_storage: analyticsGranted ? 'granted' : 'denied',
+    };
+    gtag('consent', 'update', consentParams);
+  }
+
+  // Function to load Google Analytics
+  function loadGoogleAnalytics() {
+    if (GA_MEASUREMENT_ID === 'G-XXXXXXXXXX') {
+      // Google Analytics ID not configured yet
+      return;
+    }
+
+    // Check if already loaded
+    if (document.querySelector(`script[src*="gtag/js?id=${GA_MEASUREMENT_ID}"]`)) {
+      return;
+    }
+
+    // Load gtag.js
+    const gtagScript = document.createElement('script');
+    gtagScript.async = true;
+    gtagScript.src = `https://www.googletagmanager.com/gtag/js?id=${GA_MEASUREMENT_ID}`;
+    document.head.appendChild(gtagScript);
+
+    // Initialize Google Analytics
+    gtag('js', new Date());
+    gtag('config', GA_MEASUREMENT_ID);
+  }
+
+  // Check existing consent and apply it
+  const existingConsent = localStorage.getItem("cookie-consent");
+  const analyticsEnabled = localStorage.getItem("cookie-analytics-enabled") === "true";
+  const marketingEnabled = localStorage.getItem("cookie-marketing-enabled") === "true";
+
+  if (existingConsent === "all") {
+    // User previously accepted all cookies
+    updateConsentMode(true, true);
+    loadGoogleAnalytics();
+  } else if (existingConsent === "custom") {
+    // User previously set custom preferences
+    updateConsentMode(analyticsEnabled, marketingEnabled);
+    if (analyticsEnabled) {
+      loadGoogleAnalytics();
+    }
+  }
+
+  // ====================
   // COOKIE CONSENT
   // ====================
   const banner = document.getElementById("cookie-banner");
@@ -7,10 +69,18 @@ document.addEventListener("DOMContentLoaded", () => {
   const manageBtn = document.getElementById("cookie-manage");
   const closeBtn = document.getElementById("cookie-close-modal");
   const form = document.getElementById("cookie-form");
+  const analyticsCheckbox = document.getElementById("analytics-cookies");
+  const marketingCheckbox = document.getElementById("marketing-cookies");
 
   // Show banner only if not already accepted
-  if (banner && !localStorage.getItem("cookie-consent")) {
+  if (banner && !existingConsent) {
     banner.classList.remove("hidden");
+  }
+
+  // Restore checkbox states if custom consent was previously set
+  if (existingConsent === "custom") {
+    if (analyticsCheckbox) analyticsCheckbox.checked = analyticsEnabled;
+    if (marketingCheckbox) marketingCheckbox.checked = marketingEnabled;
   }
 
   // Always initialize modal handlers
@@ -39,7 +109,19 @@ document.addEventListener("DOMContentLoaded", () => {
   if (form && modal) {
     form.addEventListener("submit", (e) => {
       e.preventDefault();
+      const analyticsChecked = analyticsCheckbox ? analyticsCheckbox.checked : false;
+      const marketingChecked = marketingCheckbox ? marketingCheckbox.checked : false;
+
       localStorage.setItem("cookie-consent", "custom");
+      localStorage.setItem("cookie-analytics-enabled", analyticsChecked.toString());
+      localStorage.setItem("cookie-marketing-enabled", marketingChecked.toString());
+
+      updateConsentMode(analyticsChecked, marketingChecked);
+
+      if (analyticsChecked) {
+        loadGoogleAnalytics();
+      }
+
       modal.classList.add("hidden");
       if (banner) banner.classList.add("hidden");
     });
@@ -49,6 +131,12 @@ document.addEventListener("DOMContentLoaded", () => {
   if (acceptAllBtn && banner) {
     acceptAllBtn.addEventListener("click", () => {
       localStorage.setItem("cookie-consent", "all");
+      localStorage.setItem("cookie-analytics-enabled", "true");
+      localStorage.setItem("cookie-marketing-enabled", "true");
+
+      updateConsentMode(true, true);
+      loadGoogleAnalytics();
+
       banner.classList.add("hidden");
       if (modal) modal.classList.add("hidden");
     });
