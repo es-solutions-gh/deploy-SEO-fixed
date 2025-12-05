@@ -1068,7 +1068,7 @@ body.menu-open::before {
 /* ===== MOBILE ADAPTATIONS (max-width: 768px) ===== */
 @media (max-width: 768px) {
   body {
-    padding-top: 145px;
+    padding-top: 120px;
     font-size: 16px;
   }
 
@@ -1103,11 +1103,11 @@ body.menu-open::before {
     display: flex;
     flex-wrap: wrap;
     align-items: center;
-    padding: 0.5rem 0.8rem;
+    padding: 0.4rem 0.8rem;
     padding-left: max(0.8rem, var(--safe-area-inset-left));
     padding-right: max(0.8rem, var(--safe-area-inset-right));
     position: relative;
-    gap: 0.4rem;
+    gap: 0.3rem;
   }
 
   .header .wrap .logo {
@@ -1117,7 +1117,7 @@ body.menu-open::before {
     font-size: 1.05rem;
     position: static;
     transform: none;
-    padding-bottom: 0.35rem;
+    padding-bottom: 0.25rem;
     border-bottom: 1px solid rgba(255, 255, 255, 0.1);
   }
 
@@ -1128,7 +1128,7 @@ body.menu-open::before {
     justify-content: space-between;
     align-items: center;
     gap: 0.6rem;
-    padding: 0.35rem 0;
+    padding: 0.25rem 0;
   }
 
   .header .wrap .mobile-header-row .burger {
@@ -1150,18 +1150,24 @@ body.menu-open::before {
   .header .wrap .mobile-cta {
     order: 3;
     flex: 0 0 100%;
-    margin-top: 0.35rem;
+    margin-top: 0.25rem;
+  }
+
+  /* Breadcrumbs mobile spacing */
+  nav[aria-label="Breadcrumb"] {
+    padding-top: 0.5rem !important;
+    margin-bottom: 1rem !important;
   }
 
   .nav {
     display: none;
     flex-direction: column;
     position: fixed;
-    top: 145px;
+    top: 120px;
     right: -100%;
     width: 280px;
     max-width: 85vw;
-    height: calc(100vh - 145px);
+    height: calc(100vh - 120px);
     background: rgba(11, 30, 89, 0.98);
     backdrop-filter: blur(10px);
     border-left: 1px solid rgba(255, 255, 255, 0.15);
