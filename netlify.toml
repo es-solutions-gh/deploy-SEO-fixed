@@ -51,3 +51,24 @@ publish = "./"
   for = "/"
   [headers.values]
     Cache-Control = "public, max-age=3600, must-revalidate"
+
+# Redirects
+[[redirects]]
+  from = "/"
+  to = "/en/"
+  status = 301
+
+[[redirects]]
+  from = "/en"
+  to = "/en/"
+  status = 301
+
+[[redirects]]
+  from = "/ru"
+  to = "/ru/"
+  status = 301
+
+[[redirects]]
+  from = "/uk"
+  to = "/uk/"
+  status = 301
