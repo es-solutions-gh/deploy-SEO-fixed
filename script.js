@@ -6,7 +6,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const GA_MEASUREMENT_ID = 'G-7HMEBM3RC9';
   
   // DEBUG MODE: Set to true to load GA for Tag Assistant testing (disable in production!)
-  const DEBUG_MODE = false; // Set to true only for testing with Tag Assistant
+  const DEBUG_MODE = true; // Set to true only for testing with Tag Assistant
 
   // Initialize gtag function if not already defined
   window.dataLayer = window.dataLayer || [];
