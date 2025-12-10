@@ -1,0 +1,6 @@
+# Redirect /assets/ directory access to homepage
+RewriteEngine On
+RewriteRule ^assets/?$ /en/ [R=301,L]
+
+# Prevent directory listing
+Options -Indexes

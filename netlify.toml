@@ -72,3 +72,8 @@ publish = "./"
   from = "/uk"
   to = "/uk/"
   status = 301
+
+[[redirects]]
+  from = "/assets/"
+  to = "/en/"
+  status = 301
