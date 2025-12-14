@@ -279,12 +279,18 @@ a {
 .hero-img {
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  gap: 1rem;
+  justify-content: flex-start;
+  align-items: flex-start;
+  gap: 0;
 }
 
-.hero-img img {
+.hero-img picture {
+  display: block;
+  width: 100%;
+  max-width: 350px;
+}
+
+.hero-img picture img {
   width: 100%;
   max-width: 350px;
   border-radius: 12px;
@@ -294,8 +300,12 @@ a {
 .hero-img a {
   display: block;
   width: 100%;
-  max-width: 350px;
+  max-width: 250px;
+  margin-top: 0;
   transition: transform 0.2s ease, box-shadow 0.2s ease;
+  /* Отступ равен высоте кнопки - используем aspect-ratio изображения кнопки */
+  /* Предполагаем соотношение сторон кнопки примерно 16:9 (высота = ширина * 0.5625) */
+  margin-top: calc(250px * 0.5625);
 }
 
 .hero-img a:hover {
@@ -307,6 +317,7 @@ a {
   width: 100%;
   border-radius: 12px;
   box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+  display: block;
 }
 
 /* ===== SECTIONS ===== */
@@ -1231,6 +1242,8 @@ body.menu-open::before {
 
   .hero {
     padding: 2rem 1rem;
+    padding-bottom: 1rem;
+    min-height: auto;
   }
 
   .hero .grid {
@@ -1363,12 +1376,18 @@ body.menu-open::before {
 
   #cookie-banner {
     padding: 1rem 1rem;
+    padding-bottom: max(1rem, var(--safe-area-inset-bottom));
   }
 
   .cookie-content-wrapper {
     flex-direction: column;
     align-items: flex-start;
     gap: 1rem;
+  }
+
+  /* Add padding to body when cookie banner is visible on mobile */
+  body:has(#cookie-banner:not(.hidden)) {
+    padding-bottom: 200px;
   }
 
   .cookie-text-main {
