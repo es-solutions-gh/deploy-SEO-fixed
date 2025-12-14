@@ -1297,15 +1297,19 @@ body.menu-open::before {
   .hero .mobile-only {
     max-width: 100%;
     width: 100%;
-    height: auto;
   }
   
   /* На мобильных показываем мобильную кнопку IMD и делаем её равной высоте CTA */
   .hero .mobile-only a[href*="IMD"] {
     display: block !important;
     max-width: 100% !important;
+    width: 100% !important;
     height: 40px !important;
+    max-height: 40px !important;
     overflow: hidden !important;
+    margin: 1rem 0 !important;
+    padding: 0 !important;
+    box-sizing: border-box !important;
   }
   
   .hero .mobile-only a[href*="IMD"] img {
@@ -1315,8 +1319,9 @@ body.menu-open::before {
     max-width: 100% !important;
     object-fit: contain !important;
     display: block !important;
-    margin: 0 !important;
+    margin: 0 auto !important;
     padding: 0 !important;
+    box-sizing: border-box !important;
   }
 
   .section {
