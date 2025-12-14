@@ -227,6 +227,13 @@ a {
   display: none;
 }
 
+/* Убеждаемся, что мобильная кнопка IMD скрыта на десктопе */
+@media (min-width: 769px) {
+  .hero .mobile-only a[href*="IMD"] {
+    display: none !important;
+  }
+}
+
 /* ===== HERO SECTION ===== */
 .hero {
   padding: 4rem 2rem 2rem 2rem;
@@ -299,13 +306,12 @@ a {
 
 .hero-img a {
   display: block;
-  width: 100%;
-  max-width: 250px;
+  width: auto;
+  max-width: none;
   margin-top: 0;
   transition: transform 0.2s ease, box-shadow 0.2s ease;
-  /* Отступ равен высоте кнопки - используем aspect-ratio изображения кнопки */
-  /* Предполагаем соотношение сторон кнопки примерно 16:9 (высота = ширина * 0.5625) */
-  margin-top: calc(250px * 0.5625);
+  /* Отступ равен высоте кнопки - 90% от высоты CTA кнопки (48px * 0.9 = 43.2px) */
+  margin-top: calc(48px * 0.9);
 }
 
 .hero-img a:hover {
@@ -314,10 +320,13 @@ a {
 }
 
 .hero-img a img {
-  width: 100%;
+  height: calc(48px * 0.9); /* 90% от высоты CTA кнопки (43.2px) */
+  width: auto; /* Сохраняем пропорции */
+  max-width: 300px; /* Ограничиваем максимальную ширину */
   border-radius: 12px;
   box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
   display: block;
+  object-fit: contain;
 }
 
 /* ===== SECTIONS ===== */
@@ -1276,11 +1285,21 @@ body.menu-open::before {
     order: -1;
   }
 
-  .hero-img img,
+  .hero-img img {
+    max-width: 100%;
+    width: 100%;
+    height: auto;
+  }
+  
   .hero .mobile-only {
     max-width: 100%;
     width: 100%;
     height: auto;
+  }
+  
+  /* На мобильных показываем мобильную кнопку IMD */
+  .hero .mobile-only a[href*="IMD"] {
+    display: block !important;
   }
 
   .section {
