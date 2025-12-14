@@ -1305,11 +1305,17 @@ body.menu-open::before {
     display: block !important;
   }
   
+  .hero .mobile-only a[href*="IMD"] {
+    display: block !important;
+    max-width: 100% !important;
+  }
+  
   .hero .mobile-only a[href*="IMD"] img {
     height: 40px !important; /* Равна высоте мобильной CTA кнопки (min-height: 40px) */
     width: auto !important;
     max-width: 100% !important;
     object-fit: contain !important;
+    display: block !important;
   }
 
   .section {
