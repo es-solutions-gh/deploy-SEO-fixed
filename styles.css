@@ -229,8 +229,11 @@ a {
 
 /* Убеждаемся, что мобильная кнопка IMD скрыта на десктопе */
 @media (min-width: 769px) {
-  .hero .mobile-only a[href*="IMD"] {
+  .hero .mobile-only,
+  .hero .mobile-only a[href*="IMD"],
+  .hero .mobile-only a[href*="IMD"] img {
     display: none !important;
+    visibility: hidden !important;
   }
 }
 
@@ -310,8 +313,8 @@ a {
   max-width: none;
   margin-top: 0;
   transition: transform 0.2s ease, box-shadow 0.2s ease;
-  /* Отступ равен высоте кнопки - 90% от высоты CTA кнопки (48px * 0.9 = 43.2px) */
-  margin-top: calc(48px * 0.9);
+  /* Отступ равен высоте кнопки - равна высоте CTA кнопки */
+  margin-top: 48px;
 }
 
 .hero-img a:hover {
@@ -320,7 +323,7 @@ a {
 }
 
 .hero-img a img {
-  height: calc(48px * 0.9); /* 90% от высоты CTA кнопки (43.2px) */
+  height: 48px; /* Равна высоте CTA кнопки (min-height: 48px + padding) */
   width: auto; /* Сохраняем пропорции */
   max-width: 300px; /* Ограничиваем максимальную ширину */
   border-radius: 12px;
@@ -1297,9 +1300,16 @@ body.menu-open::before {
     height: auto;
   }
   
-  /* На мобильных показываем мобильную кнопку IMD */
+  /* На мобильных показываем мобильную кнопку IMD и делаем её равной высоте CTA */
   .hero .mobile-only a[href*="IMD"] {
     display: block !important;
+  }
+  
+  .hero .mobile-only a[href*="IMD"] img {
+    height: 40px !important; /* Равна высоте мобильной CTA кнопки (min-height: 40px) */
+    width: auto !important;
+    max-width: 100% !important;
+    object-fit: contain !important;
   }
 
   .section {
