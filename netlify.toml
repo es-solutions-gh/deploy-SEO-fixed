@@ -53,6 +53,14 @@ publish = "./"
     Cache-Control = "public, max-age=3600, must-revalidate"
 
 # Redirects
+
+# Redirect www to non-www
+[[redirects]]
+  from = "https://www.shevchenko.solutions/*"
+  to = "https://shevchenko.solutions/:splat"
+  status = 301
+  force = true
+
 [[redirects]]
   from = "/"
   to = "/en/"
