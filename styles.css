@@ -236,8 +236,12 @@ a {
     visibility: hidden !important;
   }
   
-  .hero-img {
-    padding-left: 70px; /* 20% of portrait max-width (350px) */
+  .hero-img picture {
+    margin-left: 70px; /* 20% of portrait max-width (350px) */
+  }
+  
+  .hero-img > a {
+    margin-left: 70px; /* 20% of portrait max-width (350px) */
   }
 }
 
