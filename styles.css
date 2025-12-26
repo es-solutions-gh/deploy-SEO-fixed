@@ -237,7 +237,7 @@ a {
   }
   
   .hero-img {
-    margin-left: 70px; /* 20% of portrait max-width (350px) */
+    padding-left: 70px; /* 20% of portrait max-width (350px) */
   }
 }
 
