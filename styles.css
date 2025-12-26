@@ -235,6 +235,10 @@ a {
     display: none !important;
     visibility: hidden !important;
   }
+  
+  .hero-img {
+    margin-left: 70px; /* 20% of portrait max-width (350px) */
+  }
 }
 
 /* ===== HERO SECTION ===== */
@@ -292,7 +296,6 @@ a {
   justify-content: flex-start;
   align-items: flex-start;
   gap: 0;
-  margin-left: 70px; /* 20% of portrait max-width (350px) */
 }
 
 .hero-img picture {
