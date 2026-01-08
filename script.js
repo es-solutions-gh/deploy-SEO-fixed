@@ -280,4 +280,71 @@ document.addEventListener("DOMContentLoaded", () => {
   calendlyScript.src = "https://assets.calendly.com/assets/external/widget.js";
   calendlyScript.async = true;
   document.head.appendChild(calendlyScript);
+
+  // ====================
+  // YOUTUBE VIDEOS LOADER
+  // ====================
+  const youtubeContainer = document.getElementById("youtube-videos");
+  if (youtubeContainer) {
+    // Determine current language from URL
+    const currentPath = window.location.pathname;
+    let currentLang = "en";
+    if (currentPath.includes("/uk/")) currentLang = "uk";
+    else if (currentPath.includes("/ru/")) currentLang = "ru";
+
+    // Load videos from JSON
+    fetch("/videos.json")
+      .then((response) => {
+        if (!response.ok) {
+          throw new Error("Failed to load videos");
+        }
+        return response.json();
+      })
+      .then((videos) => {
+        // Sort by date (newest first)
+        videos.sort((a, b) => new Date(b.date) - new Date(a.date));
+
+        // Take maximum 6 videos
+        const videosToShow = videos.slice(0, 6);
+
+        // Clear container
+        youtubeContainer.innerHTML = "";
+
+        // Render video cards
+        videosToShow.forEach((video) => {
+          // Select title based on language (uk uses title_ru)
+          const title =
+            currentLang === "en"
+              ? video.title_en
+              : currentLang === "ru"
+              ? video.title_ru
+              : video.title_ru; // uk uses title_ru
+
+          const videoCard = document.createElement("a");
+          videoCard.className = "post";
+          videoCard.href = `https://www.youtube.com/shorts/${video.id}`;
+          videoCard.rel = "noopener";
+          videoCard.target = "_blank";
+
+          const img = document.createElement("img");
+          img.alt = title;
+          img.loading = "lazy";
+          img.src = `https://img.youtube.com/vi/${video.id}/maxresdefault.jpg`;
+
+          const h4 = document.createElement("h4");
+          h4.textContent = title;
+
+          videoCard.appendChild(img);
+          videoCard.appendChild(h4);
+          youtubeContainer.appendChild(videoCard);
+        });
+      })
+      .catch((error) => {
+        console.error("Error loading videos:", error);
+        // Fallback: show message or leave empty
+        youtubeContainer.innerHTML = "";
+        // Optionally show a message:
+        // youtubeContainer.innerHTML = '<p style="color: #999; padding: 2rem; text-align: center;">Видео временно недоступны</p>';
+      });
+  }
 });
