@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1" name="viewport"/>
+  <meta content="Сторінка не знайдена" name="description"/>
+  <title>404 - Сторінка не знайдена | shevchenko.solutions</title>
+  <link href="/assets/favicon.ico" rel="icon" type="image/x-icon"/>
+  <link href="/assets/favicon.svg" rel="icon" type="image/svg+xml"/>
+  <link href="/styles.css" rel="stylesheet"/>
+  <script defer src="/script.js"></script>
+</head>
+<body>
+  <header class="header">
+    <div class="wrap">
+      <!-- Logo (Desktop) -->
+      <a class="logo desktop-only" href="/uk/">
+        shevchenko<span class="dot">.</span>solutions
+      </a>
+      <!-- CTA (Desktop) -->
+      <a class="cta-link desktop-only" href="" onclick="if (typeof Calendly !== 'undefined') { Calendly.initPopupWidget({url: 'https://calendly.com/evgeny-shevchenko?hide_gdpr_banner=1'}); } else { alert('Loading calendar...'); setTimeout(() => location.reload(), 1000); } return false;">
+        БЕЗКОШТОВНИЙ 30' ДЗВІНОК!
+      </a>
+      <!-- Navigation -->
+      <nav class="nav">
+        <a href="/uk/#about-me">Про мене</a>
+        <a href="/uk/#how-i-help">Як я допомагаю</a>
+        <a href="/uk/#case-studies">Кейси</a>
+        <a href="/uk/#what-clients-say">Відгуки</a>
+        <a href="/uk/#pricing">Формати & Ціни</a>
+        <a href="/uk/#press-media">Медіа</a>
+        <a href="/uk/#contact">Контакти</a>
+      </nav>
+      <!-- Language Switcher (Desktop) -->
+      <div class="lang-switch desktop-only">
+        <button id="current-lang-desktop" type="button">
+          <img alt="UK" id="current-flag-desktop" src="/assets/flags/UKR.svg" loading="lazy">
+          <span id="current-code-desktop">UKR</span>
+          ▾
+        </button>
+        <ul class="hidden" id="lang-menu-desktop">
+          <li data-lang="en">
+            <img alt="English" src="/assets/flags/ENG.svg" loading="lazy">
+            ENG
+          </li>
+          <li data-lang="uk">
+            <img alt="Українська" src="/assets/flags/UKR.svg" loading="lazy">
+            UKR
+          </li>
+          <li data-lang="ru">
+            <img alt="Русский" src="/assets/flags/RUS.svg" loading="lazy">
+            RUS
+          </li>
+        </ul>
+      </div>
+      <!-- Logo (Mobile) -->
+      <a class="logo mobile-only" href="/uk/">
+        shevchenko<span class="dot">.</span>solutions
+      </a>
+      <!-- Mobile Row: Burger + Language -->
+      <div class="mobile-header-row">
+        <button aria-label="Toggle navigation menu" class="burger" id="burger-btn">☰</button>
+        <div class="lang-switch mobile-top">
+          <button id="current-lang" type="button">
+            <img alt="UK" id="current-flag" src="/assets/flags/UKR.svg" loading="lazy">
+            <span id="current-code">UKR</span>
+            ▾
+          </button>
+          <ul class="hidden" id="lang-menu">
+            <li data-lang="en">
+              <img alt="English" src="/assets/flags/ENG.svg" loading="lazy">
+              ENG
+            </li>
+            <li data-lang="uk">
+              <img alt="Українська" src="/assets/flags/UKR.svg" loading="lazy">
+              UKR
+            </li>
+            <li data-lang="ru">
+              <img alt="Русский" src="/assets/flags/RUS.svg" loading="lazy">
+              RUS
+            </li>
+          </ul>
+        </div>
+      </div>
+      <!-- CTA (Mobile) -->
+      <a class="cta-link mobile-cta" href="" onclick="if (typeof Calendly !== 'undefined') { Calendly.initPopupWidget({url: 'https://calendly.com/evgeny-shevchenko?hide_gdpr_banner=1'}); } else { alert('Loading calendar...'); setTimeout(() => location.reload(), 1000); } return false;">
+        БЕЗКОШТОВНИЙ 30' ДЗВІНОК!
+      </a>
+    </div>
+  </header>
+
+  <main class="error-page">
+    <div class="error-container">
+      <h1 class="error-code">
+        404<span class="error-dot">.</span>
+      </h1>
+      <h2 class="error-title">Сторінка не знайдена</h2>
+      <p class="error-description">
+        Посилання могло застаріти або сторінку було переміщено.<br>
+        Виберіть наступний крок:
+      </p>
+      <div class="error-actions">
+        <a href="/uk/" class="btn-primary">На головну</a>
+        <a href="/uk/#case-studies" class="btn-secondary">До кейсів</a>
+      </div>
+      <a href="/uk/#contact" class="error-link">Написати мені</a>
+    </div>
+  </main>
+
+  <footer class="footer">
+    © <span id="y"></span> Evgeny Shevchenko. All rights reserved.
+    <span class="footer-divider">·</span>
+    <a href="/cookie-policy.uk.html">Cookie Policy</a>
+  </footer>
+
+  <script>
+    document.getElementById('y').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>

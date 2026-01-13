@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1" name="viewport"/>
+  <meta content="Page not found" name="description"/>
+  <title>404 - Page Not Found | shevchenko.solutions</title>
+  <link href="/assets/favicon.ico" rel="icon" type="image/x-icon"/>
+  <link href="/assets/favicon.svg" rel="icon" type="image/svg+xml"/>
+  <link href="/styles.css" rel="stylesheet"/>
+  <script defer src="/script.js"></script>
+</head>
+<body>
+  <header class="header">
+    <div class="wrap">
+      <!-- Logo (Desktop) -->
+      <a class="logo desktop-only" href="/en/">
+        shevchenko<span class="dot">.</span>solutions
+      </a>
+      <!-- CTA (Desktop) -->
+      <a class="cta-link desktop-only" href="" onclick="Calendly.initPopupWidget({url: 'https://calendly.com/evgeny-shevchenko?hide_gdpr_banner=1'}); return false;">
+        BOOK A FREE 30' CALL!
+      </a>
+      <!-- Navigation -->
+      <nav class="nav">
+        <a href="/en/#about-me">About Me</a>
+        <a href="/en/#how-i-help">How I Help</a>
+        <a href="/en/#case-studies">Case Studies</a>
+        <a href="/en/#what-clients-say">References</a>
+        <a href="/en/#pricing">Formats & Pricing</a>
+        <a href="/en/#press-media">Media</a>
+        <a href="/en/#contact">Contact</a>
+      </nav>
+      <!-- Language Switcher (Desktop) -->
+      <div class="lang-switch desktop-only">
+        <button id="current-lang-desktop" type="button">
+          <img alt="EN" id="current-flag-desktop" src="/assets/flags/ENG.svg" loading="lazy">
+          <span id="current-code-desktop">ENG</span>
+          ▾
+        </button>
+        <ul class="hidden" id="lang-menu-desktop">
+          <li data-lang="en">
+            <img alt="English" src="/assets/flags/ENG.svg" loading="lazy">
+            ENG
+          </li>
+          <li data-lang="uk">
+            <img alt="Українська" src="/assets/flags/UKR.svg" loading="lazy">
+            UKR
+          </li>
+          <li data-lang="ru">
+            <img alt="Русский" src="/assets/flags/RUS.svg" loading="lazy">
+            RUS
+          </li>
+        </ul>
+      </div>
+      <!-- Logo (Mobile) -->
+      <a class="logo mobile-only" href="/en/">
+        shevchenko<span class="dot">.</span>solutions
+      </a>
+      <!-- Mobile Row: Burger + Language -->
+      <div class="mobile-header-row">
+        <button aria-label="Toggle navigation menu" class="burger" id="burger-btn">☰</button>
+        <div class="lang-switch mobile-top">
+          <button id="current-lang" type="button">
+            <img alt="EN" id="current-flag" src="/assets/flags/ENG.svg" loading="lazy">
+            <span id="current-code">ENG</span>
+            ▾
+          </button>
+          <ul class="hidden" id="lang-menu">
+            <li data-lang="en">
+              <img alt="English" src="/assets/flags/ENG.svg" loading="lazy">
+              ENG
+            </li>
+            <li data-lang="uk">
+              <img alt="Українська" src="/assets/flags/UKR.svg" loading="lazy">
+              UKR
+            </li>
+            <li data-lang="ru">
+              <img alt="Русский" src="/assets/flags/RUS.svg" loading="lazy">
+              RUS
+            </li>
+          </ul>
+        </div>
+      </div>
+      <!-- CTA (Mobile) -->
+      <a class="cta-link mobile-cta" href="" onclick="Calendly.initPopupWidget({url: 'https://calendly.com/evgeny-shevchenko?hide_gdpr_banner=1'}); return false;">
+        BOOK A FREE 30' CALL!
+      </a>
+    </div>
+  </header>
+
+  <main class="error-page">
+    <div class="error-container">
+      <h1 class="error-code">
+        404<span class="error-dot">.</span>
+      </h1>
+      <h2 class="error-title">Page Not Found</h2>
+      <p class="error-description">
+        The link may have expired or the page has been moved.<br>
+        Choose your next step:
+      </p>
+      <div class="error-actions">
+        <a href="/en/" class="btn-primary">Home</a>
+        <a href="/en/#case-studies" class="btn-secondary">Case Studies</a>
+      </div>
+      <a href="/en/#contact" class="error-link">Contact Me</a>
+    </div>
+  </main>
+
+  <footer class="footer">
+    © <span id="y"></span> Evgeny Shevchenko. All rights reserved.
+    <span class="footer-divider">·</span>
+    <a href="/cookie-policy.en.html">Cookie Policy</a>
+  </footer>
+
+  <script>
+    document.getElementById('y').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>

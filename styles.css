@@ -1639,3 +1639,188 @@ body.menu-open::before {
     font-size: 0.82rem;
   }
 }
+
+/* ===== 404 ERROR PAGE ===== */
+.error-page {
+  min-height: calc(100vh - 200px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+  background: linear-gradient(135deg, #0b1e59 0%, #5b2e91 100%);
+  position: relative;
+  overflow: hidden;
+}
+
+/* Subtle background pattern */
+.error-page::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: 
+    linear-gradient(rgba(255, 255, 255, 0.08) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.08) 1px, transparent 1px);
+  background-size: 40px 40px;
+  opacity: 1;
+  pointer-events: none;
+}
+
+.error-container {
+  max-width: 720px;
+  width: 100%;
+  text-align: left;
+  position: relative;
+  z-index: 1;
+}
+
+.error-code {
+  font-size: 160px;
+  font-weight: 700;
+  line-height: 1;
+  margin: 0;
+  color: white;
+  margin-bottom: 0.5rem;
+}
+
+.error-dot {
+  color: #f90;
+}
+
+.error-title {
+  font-size: 36px;
+  font-weight: 600;
+  color: white;
+  margin: 0 0 1.5rem 0;
+  line-height: 1.2;
+}
+
+.error-description {
+  font-size: 18px;
+  color: rgba(255, 255, 255, 0.9);
+  line-height: 1.6;
+  margin: 0 0 2.5rem 0;
+}
+
+.error-actions {
+  display: flex;
+  gap: 16px;
+  margin-bottom: 1.5rem;
+  flex-wrap: wrap;
+}
+
+.btn-primary {
+  background-color: #f90;
+  color: white;
+  padding: 0.75rem 1.5rem;
+  border-radius: 6px;
+  font-weight: 600;
+  font-size: 1rem;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 48px;
+  transition: background-color 0.2s ease;
+  white-space: nowrap;
+}
+
+.btn-primary:hover {
+  background-color: #e88a00;
+}
+
+.btn-secondary {
+  background: transparent;
+  color: white;
+  padding: 0.75rem 1.5rem;
+  border: 1px solid white;
+  border-radius: 6px;
+  font-weight: 600;
+  font-size: 1rem;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 48px;
+  transition: all 0.2s ease;
+  white-space: nowrap;
+}
+
+.btn-secondary:hover {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: #f90;
+}
+
+.error-link {
+  color: white;
+  text-decoration: none;
+  font-size: 1rem;
+  display: inline-block;
+  transition: color 0.2s ease;
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+
+.error-link:hover {
+  color: #f90;
+}
+
+/* Mobile styles for 404 page */
+@media (max-width: 768px) {
+  .error-page {
+    padding: 2rem 1.5rem;
+    min-height: calc(100vh - 200px);
+  }
+
+  .error-container {
+    max-width: 100%;
+  }
+
+  .error-code {
+    font-size: 110px;
+  }
+
+  .error-title {
+    font-size: 26px;
+    margin-bottom: 1rem;
+  }
+
+  .error-description {
+    font-size: 16px;
+    margin-bottom: 2rem;
+  }
+
+  .error-actions {
+    flex-direction: column;
+    gap: 12px;
+    margin-bottom: 1.5rem;
+  }
+
+  .btn-primary,
+  .btn-secondary {
+    width: 100%;
+    min-height: 48px;
+  }
+
+  .error-link {
+    display: block;
+    text-align: center;
+    margin-top: 0.5rem;
+  }
+}
+
+@media (max-width: 375px) {
+  .error-code {
+    font-size: 80px;
+  }
+
+  .error-title {
+    font-size: 22px;
+  }
+
+  .error-description {
+    font-size: 14px;
+  }
+}
