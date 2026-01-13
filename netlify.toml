@@ -53,19 +53,98 @@ publish = "./"
     Cache-Control = "public, max-age=3600, must-revalidate"
 
 # Redirects
+# Order matters: more specific rules first, general rules last
 
-# Redirect www to non-www
+# 1. Redirect www to non-www (highest priority)
 [[redirects]]
   from = "https://www.shevchenko.solutions/*"
   to = "https://shevchenko.solutions/:splat"
   status = 301
   force = true
 
+# 2. Favicon and icon redirects (200 = serve file, not redirect)
+# These should be early to catch browser requests quickly
+[[redirects]]
+  from = "/favicon.ico"
+  to = "/assets/favicon.ico"
+  status = 200
+
+[[redirects]]
+  from = "/apple-touch-icon.png"
+  to = "/assets/apple-touch-icon.png"
+  status = 200
+
+[[redirects]]
+  from = "/apple-touch-icon-precomposed.png"
+  to = "/assets/apple-touch-icon.png"
+  status = 200
+
+# 3. Block bot/scanner requests (specific paths first, then wildcards)
+# Specific WordPress paths
+[[redirects]]
+  from = "/wp-login.php"
+  to = "/404.html"
+  status = 404
+  force = true
+
+[[redirects]]
+  from = "/xmlrpc.php"
+  to = "/404.html"
+  status = 404
+  force = true
+
+[[redirects]]
+  from = "/wp-admin/*"
+  to = "/404.html"
+  status = 404
+  force = true
+
+[[redirects]]
+  from = "/wp-includes/*"
+  to = "/404.html"
+  status = 404
+  force = true
+
+[[redirects]]
+  from = "/wp-content/*"
+  to = "/404.html"
+  status = 404
+  force = true
+
+[[redirects]]
+  from = "//xmlrp"
+  to = "/404.html"
+  status = 404
+  force = true
+
+# Common admin/login paths
+[[redirects]]
+  from = "/admin"
+  to = "/404.html"
+  status = 404
+  force = true
+
+[[redirects]]
+  from = "/login"
+  to = "/404.html"
+  status = 404
+  force = true
+
+# Wildcard PHP files (must be after specific paths)
+[[redirects]]
+  from = "/*.php"
+  to = "/404.html"
+  status = 404
+  force = true
+
+# 4. Language redirects (general rules - processed last)
+# Redirect root to English version
 [[redirects]]
   from = "/"
   to = "/en/"
   status = 301
 
+# Redirect language codes without trailing slash
 [[redirects]]
   from = "/en"
   to = "/en/"
@@ -81,6 +160,8 @@ publish = "./"
   to = "/uk/"
   status = 301
 
+# Redirect /assets/ directory access (only if directory is accessed, not files)
+# Note: This won't block /assets/favicon.ico etc. as those are files, not directories
 [[redirects]]
   from = "/assets/"
   to = "/en/"

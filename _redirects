@@ -1,8 +1,12 @@
+# Note: Main redirect configuration is in netlify.toml
+# This file is kept for compatibility and fallback
+# Netlify processes both files, but netlify.toml takes precedence
+
 # Redirect www to non-www
 https://www.shevchenko.solutions/*  https://shevchenko.solutions/:splat  301!
 
+# Basic language redirects (fallback)
 /       /en/    301
 /en     /en/    301
 /ru     /ru/    301
 /uk     /uk/    301
-/assets/    /en/    301
