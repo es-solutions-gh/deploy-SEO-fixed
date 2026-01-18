@@ -353,6 +353,17 @@ a {
 .container {
   max-width: 1200px;
   margin: 0 auto;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+@media (max-width: 768px) {
+  .container {
+    width: 100%;
+    max-width: 100%;
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
 }
 
 .section h2 {
@@ -1807,5 +1818,459 @@ body.menu-open::before {
 
   .error-description {
     font-size: 14px;
+  }
+}
+
+/* ===== PROMO LANDING PAGE STYLES ===== */
+
+/* Мобильный header в 1 строку для promo страницы */
+@media (max-width: 768px) {
+  .promo-page .header .wrap {
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.5rem 0.8rem;
+    gap: 0.5rem;
+  }
+  
+  .promo-page .header .wrap .logo.mobile-only {
+    order: 2;
+    flex: 1;
+    text-align: center;
+    border-bottom: none;
+    padding-bottom: 0;
+    font-size: 0.95rem;
+    margin: 0;
+    display: block !important;
+  }
+  
+  .promo-page .header .wrap .mobile-header-row {
+    order: 1;
+    flex: 0 0 auto;
+    width: auto;
+    display: flex;
+  }
+  
+  .promo-page .header .wrap .mobile-header-row .burger {
+    flex-shrink: 0;
+  }
+  
+  /* Язык отдельно справа */
+  .promo-page .header .wrap .lang-switch.desktop-only {
+    display: none !important;
+  }
+  
+  .promo-page .header .wrap .lang-switch.mobile-top {
+    order: 3;
+    display: block !important;
+    flex-shrink: 0;
+  }
+  
+  /* Скрыть mobile-cta в header на promo странице */
+  .promo-page .header .mobile-cta {
+    display: none !important;
+  }
+}
+
+/* Фиксированная зона под header */
+.fixed-top-zone {
+  position: fixed;
+  top: 60px;
+  left: 0;
+  right: 0;
+  width: 100%;
+  max-width: 100%;
+  z-index: 998;
+  display: flex;
+  flex-direction: column;
+  padding: 0;
+}
+
+/* CTA кнопка */
+.promo-cta {
+  background: #f90;
+  padding: 0.8rem 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  border-radius: 24px;
+  margin: 0.5rem 1rem;
+  width: calc(100% - 2rem);
+  box-sizing: border-box;
+}
+
+.cta-text {
+  color: white;
+  font-weight: 700;
+  font-size: 1.5rem;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+.cta-icons {
+  display: flex;
+  gap: 0.5rem;
+  flex-shrink: 0;
+}
+
+.cta-icon-link {
+  width: 40px;
+  height: 40px;
+  border-radius: 8px;
+  overflow: hidden;
+  transition: transform 0.2s, box-shadow 0.2s;
+  background: transparent;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.cta-icon-link:hover {
+  transform: scale(1.1);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+}
+
+.cta-icon-link img {
+  width: 100%;
+  height: 100%;
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+  padding: 0;
+  display: block;
+  background: transparent;
+}
+
+/* Промо-баннер */
+.promo-banner {
+  background-color: #FE5D31;
+  color: white;
+  padding: 0.6rem 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  font-weight: 600;
+  font-size: 0.9rem;
+  text-align: center;
+  border-radius: 24px;
+  margin: 0 1rem 0.5rem 1rem;
+  width: calc(100% - 2rem);
+  box-sizing: border-box;
+}
+
+.promo-icon {
+  background: white;
+  color: #FE5D31;
+  width: 26px;
+  height: 26px;
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  flex-shrink: 0;
+}
+
+/* Отступ для контента promo страницы */
+body.promo-page {
+  padding-top: 160px;
+}
+
+.promo-content {
+  min-height: calc(100vh - 160px);
+  width: 100%;
+  max-width: 100%;
+}
+
+/* Promo секции */
+.promo-about,
+.promo-services,
+.promo-cases {
+  background: white;
+  padding: 2rem 1rem;
+  width: 100%;
+  max-width: 100%;
+}
+
+.about-content {
+  display: flex;
+  gap: 1.5rem;
+  align-items: flex-start;
+}
+
+.about-photo {
+  width: 120px;
+  height: 120px;
+  border-radius: 12px;
+  object-fit: cover;
+  flex-shrink: 0;
+}
+
+.about-text {
+  flex: 1;
+  text-align: left;
+}
+
+.about-text h3 {
+  color: #1a1f3a;
+  font-size: 1.2rem;
+  margin-bottom: 0.5rem;
+  text-align: left;
+}
+
+.about-text p {
+  color: #333;
+  font-size: 0.95rem;
+  line-height: 1.5;
+  margin-bottom: 0.75rem;
+  text-align: left;
+}
+
+.service-cards {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.service-card {
+  background: white;
+  border: 1px solid #e0e0e0;
+  border-radius: 12px;
+  padding: 1rem 1.25rem;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.service-card:hover {
+  border-color: #f90;
+  box-shadow: 0 4px 12px rgba(255, 153, 0, 0.15);
+}
+
+.service-card h4 {
+  color: #1a1f3a;
+  font-size: 1rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+
+.service-card p {
+  color: #555;
+  font-size: 0.9rem;
+  line-height: 1.5;
+  margin: 0;
+}
+
+.case-cards {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.case-card {
+  display: flex;
+  gap: 1rem;
+  background: white;
+  border: 1px solid #e0e0e0;
+  border-radius: 12px;
+  padding: 1rem 1.25rem;
+  text-decoration: none;
+  transition: border-color 0.2s, box-shadow 0.2s, transform 0.2s;
+}
+
+.case-card:hover {
+  border-color: #f90;
+  box-shadow: 0 4px 12px rgba(255, 153, 0, 0.15);
+  transform: translateY(-2px);
+}
+
+.case-emoji {
+  font-size: 1.5rem;
+  flex-shrink: 0;
+}
+
+.case-content h4 {
+  color: #1a1f3a;
+  font-size: 1rem;
+  font-weight: 600;
+  margin-bottom: 0.3rem;
+}
+
+.case-content p {
+  color: #555;
+  font-size: 0.85rem;
+  line-height: 1.4;
+  margin: 0;
+}
+
+.promo-footer {
+  background: #1a1f3a;
+  padding: 1.5rem 1rem;
+  text-align: center;
+  width: 100%;
+  max-width: 100%;
+}
+
+.promo-footer .container {
+  width: 100%;
+  max-width: 100%;
+}
+
+.footer-links {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  align-items: flex-start;
+  width: 100%;
+}
+
+.footer-links a {
+  color: #f90;
+  text-decoration: underline;
+  font-size: 1rem;
+  transition: color 0.2s;
+}
+
+.footer-links a:hover {
+  color: #ffb347;
+}
+
+.yt-link {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.yt-icon {
+  width: 24px;
+  height: 24px;
+}
+
+/* Мобильные адаптации для promo */
+@media (max-width: 768px) {
+  .fixed-top-zone {
+    top: 60px;
+    width: 100%;
+    left: 0;
+    right: 0;
+  }
+  
+  .promo-cta {
+    padding: 0.8rem 1rem;
+    margin: 0.5rem 1rem;
+    width: calc(100% - 2rem);
+    box-sizing: border-box;
+    border-radius: 24px;
+  }
+  
+  .cta-text {
+    font-size: 1.4rem;
+    flex-shrink: 1;
+    min-width: 0;
+  }
+  
+  .cta-icons {
+    flex-shrink: 0;
+  }
+  
+  .cta-icon-link {
+    width: 36px;
+    height: 36px;
+    min-width: 36px;
+    min-height: 36px;
+    max-width: 36px;
+    max-height: 36px;
+    background: transparent;
+  }
+  
+  .promo-banner {
+    font-size: 0.85rem;
+    padding: 0.6rem 1rem;
+    margin: 0 1rem 0.5rem 1rem;
+    width: calc(100% - 2rem);
+    box-sizing: border-box;
+    border-radius: 24px;
+  }
+  
+  .promo-icon {
+    width: 22px;
+    height: 22px;
+    font-size: 0.85rem;
+    min-width: 22px;
+    min-height: 22px;
+  }
+  
+  body.promo-page {
+    padding-top: 145px;
+  }
+  
+  .promo-content {
+    width: 100%;
+    max-width: 100%;
+  }
+  
+  .promo-about,
+  .promo-services,
+  .promo-cases {
+    width: 100%;
+    padding: 2rem 1rem;
+    box-sizing: border-box;
+  }
+  
+  .about-content {
+    flex-direction: row;
+    align-items: flex-start;
+    width: 100%;
+    gap: 1.5rem;
+  }
+  
+  .about-text {
+    text-align: left;
+    flex: 1;
+  }
+  
+  .about-text h3,
+  .about-text p {
+    text-align: left;
+  }
+  
+  .about-photo {
+    max-width: 120px;
+    width: 120px;
+    height: 120px;
+    flex-shrink: 0;
+  }
+}
+
+@media (max-width: 480px) {
+  .about-content {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+}
+
+/* Дополнительные исправления для promo страниц */
+.promo-page .container {
+  width: 100%;
+  max-width: 100%;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  box-sizing: border-box;
+}
+
+@media (max-width: 768px) {
+  .promo-page .container {
+    width: 100%;
+    max-width: 100%;
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+  
+  .promo-page .section {
+    width: 100%;
+    max-width: 100%;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    box-sizing: border-box;
   }
 }
