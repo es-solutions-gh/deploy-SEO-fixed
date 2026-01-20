@@ -29,7 +29,7 @@
 
 html {
   scroll-behavior: smooth;
-  scroll-padding-top: 120px;
+  scroll-padding-top: 140px;
   width: 100%;
   max-width: 100%;
   overflow-x: hidden;
@@ -41,7 +41,7 @@ body {
   background-color: #0b1e59;
   color: white;
   line-height: 1.6;
-  padding-top: 60px;
+  padding-top: 80px;
   font-size: 16px;
   width: 100%;
   max-width: 100%;
@@ -325,6 +325,7 @@ a {
   display: none;
 }
 
+
 /* Убеждаемся, что мобильная кнопка IMD скрыта на десктопе */
 @media (min-width: 769px) {
   .hero .mobile-only,
@@ -345,7 +346,7 @@ a {
 
 /* ===== HERO SECTION ===== */
 .hero {
-  padding: 4rem 0 2rem 0;
+  padding: 5rem 0 2rem 0;
   background: linear-gradient(135deg, #0b1e59 0%, #5b2e91 100%);
   width: 100%;
   max-width: 100%;
@@ -448,10 +449,17 @@ a {
 }
 
 /* ===== SECTIONS ===== */
-.section {
-  padding: 2rem 2rem;
-  background-color: white;
-}
+  .section {
+    padding: 2rem 2rem;
+    background-color: white;
+  }
+
+  /* Ensure first section doesn't overlap with header */
+  body > .section:first-of-type,
+  body > main > .section:first-of-type,
+  body > main .section:first-of-type {
+    padding-top: 3rem;
+  }
 
 .section:nth-child(even) {
   background-color: #f9f9f9;
@@ -468,6 +476,7 @@ a {
 
 @media (max-width: 768px) {
   html {
+    scroll-padding-top: 240px;
     overflow-x: hidden !important;
     width: 100% !important;
     max-width: 100vw !important;
@@ -1337,8 +1346,12 @@ body.menu-open::before {
 
 /* ===== MOBILE ADAPTATIONS (max-width: 768px) ===== */
 @media (max-width: 768px) {
+  html {
+    scroll-padding-top: 200px;
+  }
+  
   body {
-    padding-top: 100px;
+    padding-top: 200px;
     font-size: 16px;
   }
 
@@ -1370,63 +1383,84 @@ body.menu-open::before {
   }
 
   .header .wrap {
-    display: flex;
-    flex-wrap: wrap;
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    grid-template-rows: auto auto;
     align-items: center;
-    padding: 0.3rem 0.8rem;
+    padding: 0.5rem 0.8rem;
     padding-left: max(0.8rem, var(--safe-area-inset-left));
     padding-right: max(0.8rem, var(--safe-area-inset-right));
     position: relative;
-    gap: 0.2rem;
+    gap: 0.5rem;
+    row-gap: 0.5rem;
   }
 
-  .header .wrap .logo {
-    order: 1;
-    flex: 0 0 100%;
-    text-align: center;
-    font-size: 1rem;
-    position: static;
-    transform: none;
-    padding-bottom: 0.2rem;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  /* Hide desktop logo on mobile */
+  .header .wrap .logo.desktop-only {
+    display: none !important;
   }
 
+  /* First row: Burger, Logo, Language in one line - exactly like promo */
   .header .wrap .mobile-header-row {
-    order: 2;
-    flex: 0 0 100%;
+    grid-column: 1;
+    grid-row: 1;
     display: flex;
-    justify-content: space-between;
     align-items: center;
-    gap: 0.6rem;
-    padding: 0.2rem 0;
+    padding: 0;
+    justify-self: start;
   }
 
   .header .wrap .mobile-header-row .burger {
     font-size: 1.35rem;
     padding: 0.3rem;
+    flex-shrink: 0;
   }
 
-  .header .wrap .mobile-header-row .lang-switch button {
+  .header .wrap .logo.mobile-only {
+    grid-column: 2;
+    grid-row: 1;
+    text-align: center;
+    font-size: 0.95rem;
+    position: static;
+    transform: none;
+    padding-bottom: 0;
+    border-bottom: none;
+    margin: 0;
+    display: block !important;
+    justify-self: center;
+    align-self: center;
+  }
+
+  .header .wrap .lang-switch.mobile-top {
+    grid-column: 3;
+    grid-row: 1;
+    display: block !important;
+    justify-self: end;
+    align-self: center;
+  }
+
+  .header .wrap .lang-switch.mobile-top button {
     padding: 0.4rem 0.7rem;
     font-size: 0.8rem;
     min-height: 48px;
   }
 
-  .header .wrap .mobile-header-row .lang-switch button img {
+  .header .wrap .lang-switch.mobile-top button img {
     width: 20px;
     height: 15px;
   }
-
+  
+  /* Force CTA to next line - exactly like promo but visible */
   .header .wrap .mobile-cta {
-    order: 3;
-    flex: 0 0 100%;
-    margin-top: 0.2rem;
+    grid-column: 1 / -1;
+    grid-row: 2;
+    width: 100%;
+    margin-top: 1.1rem;
     padding: 0.6rem 1rem !important;
     font-size: 0.9rem !important;
-    width: 100% !important;
     max-width: 100% !important;
-    margin-left: calc(-1 * max(0.8rem, var(--safe-area-inset-left))) !important;
-    margin-right: calc(-1 * max(0.8rem, var(--safe-area-inset-right))) !important;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
     padding-left: max(0.8rem, var(--safe-area-inset-left)) !important;
     padding-right: max(0.8rem, var(--safe-area-inset-right)) !important;
     box-sizing: border-box !important;
@@ -1518,31 +1552,38 @@ body.menu-open::before {
   }
 
   .nav {
-    display: none;
-    flex-direction: column;
-    position: fixed;
-    top: 100px;
-    right: -100%;
-    width: 280px;
-    max-width: 85vw;
-    height: calc(100vh - 100px);
-    background: rgba(11, 30, 89, 0.98);
-    backdrop-filter: blur(10px);
-    border-left: 1px solid rgba(255, 255, 255, 0.15);
-    border-radius: 8px 0 0 0;
-    padding: 0.8rem;
-    gap: 0.15rem;
-    z-index: 9999;
-    box-shadow: -4px 0 24px rgba(0, 0, 0, 0.4);
-    overflow-y: auto;
-    will-change: transform;
-    transform: translateZ(0);
-    transition: right 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    display: none !important;
+    flex-direction: column !important;
+    position: fixed !important;
+    top: 240px !important;
+    left: -100% !important;
+    right: unset !important;
+    width: 280px !important;
+    max-width: 85vw !important;
+    height: calc(100vh - 240px) !important;
+    background: rgba(11, 30, 89, 0.98) !important;
+    backdrop-filter: blur(10px) !important;
+    border-right: 1px solid rgba(255, 255, 255, 0.15) !important;
+    border-left: none !important;
+    border-top: none !important;
+    border-bottom: none !important;
+    border-radius: 0 8px 0 0 !important;
+    padding: 0.8rem !important;
+    gap: 0.15rem !important;
+    z-index: 9999 !important;
+    box-shadow: 4px 0 24px rgba(0, 0, 0, 0.4) !important;
+    overflow-y: auto !important;
+    will-change: left !important;
+    transform: none !important;
+    transition: left 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
+    margin: 0 !important;
   }
 
   .nav.open {
-    display: flex;
-    right: 0;
+    display: flex !important;
+    left: 0 !important;
+    right: unset !important;
+    transform: none !important;
   }
 
   .nav a {
@@ -1561,16 +1602,20 @@ body.menu-open::before {
   .nav a:hover {
     background: rgba(255, 153, 0, 0.15);
     border-left-color: #f90;
-    transform: translateX(4px);
+    transform: translateX(4px) !important;
   }
 
   .hero {
     padding: 2rem 0 1rem 0;
+    padding-top: 2rem !important;
+    margin-top: 2.5rem !important;
     min-height: auto;
     width: 100% !important;
     max-width: 100% !important;
     box-sizing: border-box !important;
-    margin: 0 !important;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+    margin-bottom: 0 !important;
     overflow-x: hidden !important;
   }
   
@@ -1776,6 +1821,13 @@ body.menu-open::before {
     padding: 2rem 1rem;
   }
 
+  /* Ensure first section doesn't overlap with header */
+  body > .section:first-of-type,
+  body > main > .section:first-of-type,
+  body > main .section:first-of-type {
+    padding-top: 3rem;
+  }
+
   .section h2 {
     font-size: 1.75rem;
   }
@@ -1971,9 +2023,13 @@ body.menu-open::before {
     gap: 0.3rem;
   }
 
-  .header .wrap .logo {
-    font-size: 1rem;
-    padding-bottom: 0.3rem;
+  .header .wrap .logo.mobile-only {
+    font-size: 0.95rem;
+    padding-bottom: 0;
+  }
+  
+  .header .wrap .logo.desktop-only {
+    display: none !important;
   }
 
   .header .wrap .mobile-header-row {
@@ -1997,11 +2053,18 @@ body.menu-open::before {
   }
 
   .nav {
-    top: 135px;
+    top: 135px !important;
+    left: -100% !important;
+    right: unset !important;
     height: calc(100vh - 135px);
     width: 100%;
     max-width: 100%;
     border-radius: 0;
+  }
+  
+  .nav.open {
+    left: 0 !important;
+    right: unset !important;
   }
 
   .hero h1 {
@@ -2022,6 +2085,21 @@ body.menu-open::before {
 
   .case-gallery img {
     width: 90vw;
+  }
+}
+
+/* Hide mobile lang switch on desktop - must be after mobile rules */
+@media (min-width: 769px) {
+  .lang-switch.mobile-top,
+  .header .wrap .lang-switch.mobile-top,
+  .header .wrap .lang-switch.mobile-top button,
+  .header .wrap .lang-switch.mobile-top ul {
+    display: none !important;
+    visibility: hidden !important;
+    opacity: 0 !important;
+    height: 0 !important;
+    width: 0 !important;
+    overflow: hidden !important;
   }
 }
 
@@ -2260,6 +2338,10 @@ body.menu-open::before {
     align-items: center;
     padding: 0.5rem 0.8rem;
     gap: 0.5rem;
+  }
+  
+  .promo-page .header .wrap .logo.desktop-only {
+    display: none !important;
   }
   
   .promo-page .header .wrap .logo.mobile-only {
@@ -2817,5 +2899,29 @@ body.promo-page {
     padding-left: 1rem;
     padding-right: 1rem;
     box-sizing: border-box;
+  }
+}
+
+/* Force mobile nav to open from LEFT - highest specificity - MUST BE LAST */
+@media (max-width: 768px) {
+  nav.nav,
+  .nav,
+  header .nav,
+  body .nav,
+  header nav.nav,
+  body header nav.nav {
+    left: -100% !important;
+    right: unset !important;
+  }
+  
+  nav.nav.open,
+  .nav.open,
+  header .nav.open,
+  body .nav.open,
+  header nav.nav.open,
+  body header nav.nav.open {
+    left: 0 !important;
+    right: unset !important;
+    transform: none !important;
   }
 }

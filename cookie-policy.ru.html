@@ -78,6 +78,12 @@
       </li>
      </ul>
     </div>
+    <!-- Mobile Row: Burger -->
+    <div class="mobile-header-row">
+     <button aria-label="Toggle navigation menu" class="burger" id="burger-btn">
+      ☰
+     </button>
+    </div>
     <!-- Logo (Mobile) -->
     <a class="logo mobile-only" href="/ru/">
      shevchenko
@@ -86,34 +92,29 @@
      </span>
      solutions
     </a>
-    <!-- Mobile Row: Burger + Language -->
-    <div class="mobile-header-row">
-     <button aria-label="Toggle navigation menu" class="burger" id="burger-btn">
-      ☰
+    <!-- Language Switcher (Mobile) -->
+    <div class="lang-switch mobile-top">
+     <button id="current-lang" type="button">
+      <img alt="RU" id="current-flag" src="/assets/flags/RUS.svg"/>
+      <span id="current-code">
+       RUS
+      </span>
+      ▾
      </button>
-     <div class="lang-switch mobile-top">
-      <button id="current-lang" type="button">
-       <img alt="RU" id="current-flag" src="/assets/flags/RUS.svg"/>
-       <span id="current-code">
-        RUS
-       </span>
-       ▾
-      </button>
-      <ul class="hidden" id="lang-menu">
-       <li data-lang="en">
-        <img alt="English" src="/assets/flags/ENG.svg"/>
-        ENG
-       </li>
-       <li data-lang="uk">
-        <img alt="Українська" src="/assets/flags/UKR.svg"/>
-        UKR
-       </li>
-       <li data-lang="ru">
-        <img alt="Русский" src="/assets/flags/RUS.svg"/>
-        RUS
-       </li>
-      </ul>
-     </div>
+     <ul class="hidden" id="lang-menu">
+      <li data-lang="en">
+       <img alt="English" src="/assets/flags/ENG.svg"/>
+       ENG
+      </li>
+      <li data-lang="uk">
+       <img alt="Українська" src="/assets/flags/UKR.svg"/>
+       UKR
+      </li>
+      <li data-lang="ru">
+       <img alt="Русский" src="/assets/flags/RUS.svg"/>
+       RUS
+      </li>
+     </ul>
     </div>
    </div>
   </header>
