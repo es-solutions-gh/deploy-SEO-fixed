@@ -2902,6 +2902,117 @@ body.promo-page {
   }
 }
 
+/* ===== DESKTOP IMPROVEMENTS FOR PROMO PAGES (min-width: 769px) ===== */
+@media (min-width: 769px) {
+  /* 1. Hide duplicate mobile language switcher */
+  .promo-page .lang-switch.mobile-top {
+    display: none !important;
+  }
+
+  /* 2. CTA и плашка скидки - в одну строку, каждая по 20% ширины экрана */
+  .promo-page .fixed-top-zone {
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: flex-start;
+    gap: 0;
+    padding: 0;
+    margin-top: 0.5rem;
+  }
+
+  .promo-page .promo-cta {
+    width: 20vw;
+    margin: 1.2rem 0 0.5rem 1rem;
+    flex-shrink: 0;
+  }
+
+  .promo-page .promo-cta .cta-text {
+    white-space: normal;
+    overflow: visible;
+    text-overflow: clip;
+    line-height: 1.3;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+  }
+
+  .promo-page .promo-banner {
+    width: 20vw;
+    margin: 1.2rem 0 0.5rem 1rem;
+    flex-shrink: 0;
+  }
+
+  /* 3. Белое поле с контентом - шириной на весь экран */
+  .promo-page main.promo-content {
+    max-width: 100%;
+    margin: 0;
+    padding: 0;
+  }
+
+  .promo-page .promo-about,
+  .promo-page .promo-services,
+  .promo-page .promo-cases {
+    width: 100%;
+    max-width: 100%;
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
+
+  .promo-page .promo-about .container,
+  .promo-page .promo-services .container,
+  .promo-page .promo-cases .container {
+    max-width: 100%;
+    width: 100%;
+  }
+
+  /* 4. Портрет полноразмерный, как на главной */
+  .promo-page .promo-about .about-content {
+    display: flex;
+    align-items: flex-start;
+    gap: 2rem;
+  }
+
+  .promo-page .promo-about .about-photo {
+    width: 100%;
+    max-width: 350px;
+    height: auto;
+    flex-shrink: 0;
+  }
+
+  /* 5. Services cards - 2 columns grid */
+  .promo-page .promo-services .service-cards {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+  }
+
+  /* 6. Case studies - 2 columns grid */
+  .promo-page .promo-cases .case-cards {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+  }
+
+  /* 7. Center footer */
+  .promo-page .promo-footer {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .promo-page .promo-footer .container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .promo-page .promo-footer .footer-links {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+  }
+}
+
 /* Force mobile nav to open from LEFT - highest specificity - MUST BE LAST */
 @media (max-width: 768px) {
   nav.nav,
