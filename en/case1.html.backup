@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="en">
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1" name="viewport"/>
+  <meta content="Case study: Turning a Soviet-era brewery into the fastest-growing regional star. 72% sales growth, market share doubled, profit tripled in 2 years." name="description"/>
+  <!-- Canonical & Hreflang -->
+  <link href="https://shevchenko.solutions/en/case1.html" rel="canonical"/>
+  <link href="https://shevchenko.solutions/en/case1.html" hreflang="en" rel="alternate"/>
+  <link href="https://shevchenko.solutions/ru/case1.html" hreflang="ru" rel="alternate"/>
+  <link href="https://shevchenko.solutions/uk/case1.html" hreflang="uk" rel="alternate"/>
+  <link href="https://shevchenko.solutions/en/case1.html" hreflang="x-default" rel="alternate"/>
+  <!-- Open Graph -->
+  <meta content="article" property="og:type"/>
+  <meta content="Evgeny Shevchenko" property="og:site_name"/>
+  <meta content="Case Study: From Soviet-Era Brewery to Regional Leader" property="og:title"/>
+  <meta content="72% sales growth, market share doubled, profit tripled in 2 years" property="og:description"/>
+  <meta content="https://shevchenko.solutions/en/case1.html" property="og:url"/>
+  <meta content="https://shevchenko.solutions/cases/c1.jpg" property="og:image"/>
+  <meta content="1200" property="og:image:width"/>
+  <meta content="630" property="og:image:height"/>
+  <meta content="en_US" property="og:locale"/>
+  <meta content="ru_RU" property="og:locale:alternate"/>
+  <meta content="uk_UA" property="og:locale:alternate"/>
+  <meta content="Evgeny Shevchenko" property="article:author"/>
+  <meta content="2003-01-15" property="article:published_time"/>
+  <!-- Twitter Card -->
+  <meta content="summary_large_image" name="twitter:card"/>
+  <meta content="Case: From Soviet Legacy to the Fastest-Growing Brewery in the Country (Russia, 2003)" name="twitter:title"/>
+  <meta content="72% sales growth, market share doubled, profit tripled in 2 years" name="twitter:description"/>
+  <meta content="https://shevchenko.solutions/cases/c1.jpg" name="twitter:image"/>
+  <title>
+   🌟 Case: From Soviet Legacy to the Fastest-Growing Brewery in the Country (Russia, 2003)
+  </title>
+  <!-- Preload critical resources for faster loading -->
+  <link rel="preload" href="/assets/favicon.ico" as="image" type="image/x-icon"/>
+  <link rel="preload" href="/assets/favicon.svg" as="image" type="image/svg+xml"/>
+  <link href="/assets/favicon.ico" rel="icon" type="image/x-icon"/>
+  <link href="/assets/favicon.svg" rel="icon" type="image/svg+xml"/>
+  <link href="/assets/apple-touch-icon.png" rel="apple-touch-icon" sizes="180x180"/>
+  <!-- Preconnect to Calendly for faster loading -->
+  <link rel="preconnect" href="https://assets.calendly.com"/>
+  <link rel="dns-prefetch" href="https://assets.calendly.com"/>
+  <!-- Critical CSS inline -->
+  <style>*{margin:0;padding:0;box-sizing:border-box}:root{--safe-area-inset-left:env(safe-area-inset-left);--safe-area-inset-right:env(safe-area-inset-right);--safe-area-inset-top:env(safe-area-inset-top);--safe-area-inset-bottom:env(safe-area-inset-bottom)}@supports (padding:max(0px)){body{padding-left:max(0px,var(--safe-area-inset-left));padding-right:max(0px,var(--safe-area-inset-right))}}html{scroll-behavior:smooth;scroll-padding-top:200px}body{font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;background-color:#0b1e59;color:white;line-height:1.6;padding-top:60px;font-size:16px}a{text-decoration:none;color:inherit}.header{background-color:#0b1e59;border-bottom:1px solid rgba(255,255,255,0.1);position:fixed;top:0;left:0;right:0;z-index:1000}.header .wrap{max-width:1400px;margin:0 auto;padding:1rem 2rem;display:flex;align-items:center;justify-content:space-between;gap:2rem;flex-wrap:nowrap}.logo{font-weight:700;font-size:1.3rem;color:white;white-space:nowrap;flex-shrink:0}.logo .dot{color:#f90}.nav{display:flex;gap:1rem;align-items:center;order:3;margin:0 auto}.nav a{color:white;font-size:0.88rem;transition:color 0.2s ease;white-space:nowrap}.nav a:hover{color:#f90}.cta-link{background-color:#f90;color:white;padding:0.75rem 1.2rem;border-radius:6px;font-weight:600;font-size:0.95rem;white-space:nowrap;text-align:center;transition:background-color 0.2s ease;display:inline-flex;align-items:center;justify-content:center;min-height:48px;flex-shrink:0;order:2}.cta-link:hover{background-color:#e88a00}.header-cta{display:flex!important;align-items:center;justify-content:space-between!important;gap:0.5rem;padding:0.42rem 0.63rem;white-space:nowrap;flex-wrap:nowrap;overflow:hidden;width:auto;min-width:260px;max-width:fit-content;box-sizing:border-box;text-align:left!important}.header-cta .cta-text{color:white;font-weight:600;font-size:1.04rem!important;white-space:normal!important;flex-shrink:1;min-width:0;overflow:visible!important;display:flex!important;flex-direction:column!important;text-align:left!important;line-height:1.2}.header-cta .cta-text .cta-line{display:block!important}.header-cta .cta-icons{display:flex;gap:0;flex-shrink:0;align-items:center;white-space:nowrap;margin-left:auto}.header-cta .cta-icon-link{width:36px;height:36px;border-radius:6px;overflow:hidden;transition:transform 0.2s;background:transparent;display:flex;align-items:center;justify-content:center;margin-right:9px}.header-cta .cta-icon-link:last-child{margin-right:0}.header-cta .cta-icon-link:hover{transform:translateY(-2px)}.header-cta .cta-icon-link img{width:36px;height:36px;object-fit:contain;padding:0;display:block}.lang-switch{position:relative;flex-shrink:0;order:4}.lang-switch button{background:white;border:1px solid rgba(255,255,255,0.3);color:#1a1f3a;padding:0.5rem 1rem;border-radius:4px;cursor:pointer;display:flex;align-items:center;gap:0.5rem;font-size:0.9rem;min-height:48px}.lang-switch button img{width:20px;height:14px}.lang-switch ul{position:absolute;top:100%;right:0;background:#1a1940;border:1px solid rgba(255,255,255,0.2);border-radius:4px;margin-top:0.5rem;list-style:none;min-width:120px;overflow:hidden;z-index:10000}.lang-switch ul li{padding:0.7rem 1rem;cursor:pointer;display:flex;align-items:center;gap:0.5rem;transition:background 0.2s;min-height:48px}.lang-switch ul li:hover{background:#f90}.lang-switch ul li img{width:20px;height:14px}.hidden{display:none!important}.mobile-header-row{display:none;align-items:center;gap:1rem}.burger{background:transparent;border:none;color:white;font-size:1.8rem;cursor:pointer;padding:0.5rem;line-height:1;min-width:48px;min-height:48px;display:flex;align-items:center;justify-content:center;border-radius:8px;transition:background 0.2s ease}.burger:hover,.burger:focus{background:rgba(255,255,255,0.1);outline:2px solid #f90;outline-offset:2px}.burger:active{background:rgba(255,255,255,0.2)}.mobile-cta{display:none}@media (min-width:769px){.mobile-cta{display:none!important}}.desktop-only{display:block}.mobile-only{display:none}.case-title{color:#000!important}@media (min-width:769px){.lang-switch.mobile-top{display:none!important}.header .wrap .lang-switch.mobile-top{display:none!important}}@media (max-width:768px){body{padding-top:240px;font-size:16px}.desktop-only{display:none!important}.mobile-only{display:block!important}.mobile-header-row{display:flex!important}.mobile-cta{display:block;width:100%;margin-top:0;text-align:center;font-size:0.85rem;padding:0.5rem 1rem;min-height:56px!important}.header{position:fixed;top:0}.header .wrap{display:grid!important;grid-template-columns:auto 1fr auto!important;grid-template-rows:auto auto!important;align-items:center;padding:0.5rem 0.8rem;padding-left:max(0.8rem,var(--safe-area-inset-left));padding-right:max(0.8rem,var(--safe-area-inset-right));position:relative;gap:0.5rem;row-gap:0.5rem}.header .wrap .logo.desktop-only{display:none!important}.header .wrap .lang-switch.desktop-only{display:none!important}.header .wrap .cta-link.desktop-only{display:none!important}.header .wrap .mobile-header-row{grid-column:1;grid-row:1;display:flex;align-items:center;padding:0;justify-self:start}.header .wrap .mobile-header-row .burger{font-size:1.35rem;padding:0.3rem;flex-shrink:0}.header .wrap .logo.mobile-only{grid-column:2;grid-row:1;text-align:center;font-size:0.95rem;position:static;transform:none;padding-bottom:0;border-bottom:none;margin:0;display:block!important;justify-self:center;align-self:center}.header .wrap .lang-switch.mobile-top{grid-column:3;grid-row:1;display:block!important;justify-self:end;align-self:center}.header .wrap .lang-switch.mobile-top button{padding:0.4rem 0.7rem;font-size:0.8rem;min-height:48px}.header .wrap .lang-switch.mobile-top button img{width:20px;height:15px}.header .wrap .mobile-cta{grid-column:1/-1;grid-row:2;width:100%;margin-top:1.1rem;padding:0.6rem 1rem!important;font-size:0.9rem!important;max-width:100%!important;margin-left:0!important;margin-right:0!important;padding-left:max(0.8rem,var(--safe-area-inset-left))!important;padding-right:max(0.8rem,var(--safe-area-inset-right))!important;box-sizing:border-box!important}.header .wrap .mobile-cta.header-cta{padding:0.6rem 1rem!important;gap:0.5rem!important;flex-wrap:nowrap!important;white-space:nowrap!important;overflow:visible!important;justify-content:center!important;width:100%!important;max-width:100%!important;box-sizing:border-box!important;display:flex!important;align-items:center!important;min-height:56px!important;min-height:56px!important}.header .wrap .mobile-cta.header-cta .cta-text{font-size:1.78464rem!important;white-space:normal!important;overflow:visible!important;flex-shrink:1!important;min-width:0!important;text-align:left!important;display:flex!important;flex-direction:column!important;line-height:1.2!important}.header .wrap .mobile-cta.header-cta .cta-text .cta-line{display:block!important}.header .wrap .mobile-cta.header-cta .cta-icons{flex-shrink:0!important;display:flex!important;align-items:center!important;white-space:nowrap!important;margin-left:auto!important}.header .wrap .mobile-cta.header-cta .cta-icons .cta-icon-link{width:54.08px!important;height:54.08px!important;margin-right:27.04px!important;flex-shrink:0!important;overflow:visible!important;border-radius:0!important}.header .wrap .mobile-cta.header-cta .cta-icons .cta-icon-link:last-child{margin-right:0!important}.header .wrap .mobile-cta.header-cta .cta-icons .cta-icon-link img{width:54.08px!important;height:54.08px!important;max-width:54.08px!important;max-height:54.08px!important;min-width:54.08px!important;min-height:54.08px!important;object-fit:contain!important}.hero{padding:2rem 1rem;padding-top:2rem!important;margin-top:1rem!important}.hero .grid{grid-template-columns:1fr;gap:1.5rem}.hero h1{font-size:1.75rem;line-height:1.3;margin-bottom:1rem}.hero p{font-size:1rem;margin:0.8rem 0}.hero .list{font-size:0.95rem;line-height:1.5}.hero .list li{margin-bottom:0.8rem;font-size:0.95rem}.hero-img{order:-1}.hero-img img,.hero .mobile-only{max-width:100%;width:100%;height:auto}nav[aria-label="Breadcrumb"]{padding-top:0.3rem!important;margin-bottom:2rem!important}@media (min-width:769px){nav[aria-label="Breadcrumb"]{padding-top:0.1rem!important;margin-bottom:2rem!important}}@media (max-width:768px){nav[aria-label="Breadcrumb"]{padding-top:2.5rem!important;margin-bottom:2rem!important}nav[aria-label="Breadcrumb"] ol li:last-child{display:none!important}.case-title{margin-top:0!important}.section:first-of-type{padding-top:1rem!important}.section{padding-top:1rem!important;padding-bottom:2rem!important}}</style>
+  <!-- Non-critical CSS deferred -->
+  <link href="/styles.min.css" rel="stylesheet" media="print" onload="this.media='all'"/>
+  <noscript><link href="/styles.min.css" rel="stylesheet"/></noscript>
+  <style>@media (min-width:769px){.lang-switch.mobile-top{display:none!important}.header .wrap .lang-switch.mobile-top{display:none!important}nav[aria-label="Breadcrumb"]{padding-top:0.1rem!important;margin-bottom:2rem!important}}.case-title{color:#000!important}@media (max-width:768px){nav[aria-label="Breadcrumb"]{padding-top:2.5rem!important;margin-bottom:2rem!important}nav[aria-label="Breadcrumb"] ol li:last-child{display:none!important}.case-title{margin-top:0!important}.section:first-of-type{padding-top:1rem!important}.section{padding-top:1rem!important;padding-bottom:2rem!important}}</style>
+  <link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet"/>
+  <script async="" src="https://assets.calendly.com/assets/external/widget.js">
+  </script>
+  <script defer="" src="/script.js">
+  </script>
+ </head>
+ <body>
+  <header class="header">
+   <div class="wrap">
+    <!-- Logo (Desktop) -->
+    <a class="logo desktop-only" href="index.html">
+     shevchenko<span class="dot">.</span>solutions
+    </a>
+    <!-- CTA (Desktop) -->
+    <div class="cta-link desktop-only header-cta">
+     <span class="cta-text"><span class="cta-line">Let's discuss</span><span class="cta-line">your case</span></span>
+     <div class="cta-icons">
+      <a href="" onclick="if (typeof Calendly !== 'undefined') { Calendly.initPopupWidget({url: 'https://calendly.com/evgeny-shevchenko?hide_gdpr_banner=1'}); } else { alert('Loading calendar...'); setTimeout(() => location.reload(), 1000); } return false;" class="cta-icon-link" title="Google Meet">
+       <img src="/assets/GM_logo.png" alt="Google Meet" />
+      </a>
+      <a href="https://wa.me/351937233515" target="_blank" class="cta-icon-link" title="WhatsApp">
+       <img src="/assets/WA_logo.png" alt="WhatsApp" />
+      </a>
+     </div>
+    </div>
+    <!-- Navigation -->
+    <nav class="nav">
+     <a class="nav-link" href="index.html#how-i-help">
+      How I Help
+     </a>
+     <a class="nav-link" href="index.html#pricing">
+      Formats &amp; Pricing
+     </a>
+     <a class="nav-link" href="index.html#contact">
+      Contact
+     </a>
+     <a class="nav-link back-link" href="index.html#case-studies">
+      Back to Cases
+     </a>
+    </nav>
+    <!-- Language Switcher (Desktop) -->
+    <div class="lang-switch desktop-only">
+     <button id="current-lang-desktop" type="button">
+      <img alt="EN" id="current-flag-desktop" src="/assets/flags/ENG.svg"/ loading="lazy">
+      <span id="current-code-desktop">
+       ENG
+      </span>
+      ▾
+     </button>
+     <ul class="hidden" id="lang-menu-desktop">
+      <li data-lang="en">
+       <img alt="English" src="/assets/flags/ENG.svg"/ loading="lazy">
+       ENG
+      </li>
+      <li data-lang="uk">
+       <img alt="Українська" src="/assets/flags/UKR.svg"/ loading="lazy">
+       UKR
+      </li>
+      <li data-lang="ru">
+       <img alt="Русский" src="/assets/flags/RUS.svg"/ loading="lazy">
+       RUS
+      </li>
+     </ul>
+    </div>
+    <!-- Mobile Row: Burger -->
+    <div class="mobile-header-row">
+     <button aria-label="Toggle navigation menu" class="burger" id="burger-btn">
+      ☰
+     </button>
+    </div>
+    <!-- Logo (Mobile) -->
+    <a class="logo mobile-only" href="index.html">
+     shevchenko<span class="dot">.</span>solutions
+    </a>
+    <!-- Language Switcher (Mobile) -->
+    <div class="lang-switch mobile-top">
+     <button id="current-lang" type="button">
+      <img alt="EN" id="current-flag" src="/assets/flags/ENG.svg"/ loading="lazy">
+      <span id="current-code">
+       ENG
+      </span>
+      ▾
+     </button>
+     <ul class="hidden" id="lang-menu">
+      <li data-lang="en">
+       <img alt="English" src="/assets/flags/ENG.svg"/ loading="lazy">
+       ENG
+      </li>
+      <li data-lang="uk">
+       <img alt="Українська" src="/assets/flags/UKR.svg"/ loading="lazy">
+       UKR
+      </li>
+      <li data-lang="ru">
+       <img alt="Русский" src="/assets/flags/RUS.svg"/ loading="lazy">
+       RUS
+      </li>
+     </ul>
+    </div>
+    <!-- CTA (Mobile) -->
+    <div class="cta-link mobile-cta header-cta">
+     <span class="cta-text"><span class="cta-line">Let's discuss</span> <span class="cta-line">your case</span></span>
+     <div class="cta-icons">
+      <a href="" onclick="if (typeof Calendly !== 'undefined') { Calendly.initPopupWidget({url: 'https://calendly.com/evgeny-shevchenko?hide_gdpr_banner=1'}); } else { alert('Loading calendar...'); setTimeout(() => location.reload(), 1000); } return false;" class="cta-icon-link" title="Google Meet">
+       <img src="/assets/GM_logo.png" alt="Google Meet" />
+      </a>
+      <a href="https://wa.me/351937233515" target="_blank" class="cta-icon-link" title="WhatsApp">
+       <img src="/assets/WA_logo.png" alt="WhatsApp" />
+      </a>
+     </div>
+    </div>
+   </div>
+  </header>
+  <section class="section">
+   <div class="container">
+    <nav aria-label="Breadcrumb">
+     <ol style="list-style: none; padding: 0; margin: 0; display: flex; flex-wrap: wrap; gap: 0.5rem; font-size: 0.9rem;">
+      <li><a href="index.html" style="color: #f90; text-decoration: none;">Home</a></li>
+      <li style="color: rgba(255,255,255,0.6);">/</li>
+      <li><a href="index.html#case-studies" style="color: #f90; text-decoration: none;">Case Studies</a></li>
+      <li style="color: rgba(255,255,255,0.6);">/</li>
+      <li style="color: white;">Case: From Soviet Legacy to the Fastest-Growing Brewery in the Country (Russia, 2003)</li>
+     </ol>
+    </nav>
+
+    <h1 class="case-title">
+     🌟 Case: From Soviet Legacy to the Fastest-Growing Brewery in the Country (Russia, 2003)
+    </h1>
+    <div class="case-gallery">
+     <picture>
+      <source type="image/webp" srcset="/cases/c1.webp 1x, /cases/c1.webp 1.5x, /cases/c1.webp 2x"/>
+      <img alt="Evgeny Shevchenko at brewery" loading="lazy" src="/cases/c1.jpg"/>
+     </picture>
+     <picture>
+      <source type="image/webp" srcset="/cases/c1b.webp 1x, /cases/c1b.webp 1.5x, /cases/c1b.webp 2x"/>
+      <img alt="Brand label design" loading="lazy" src="/cases/c1b.jpg"/>
+     </picture>
+     <picture>
+      <source type="image/webp" srcset="/cases/c1c.webp 1x, /cases/c1c.webp 1.5x, /cases/c1c.webp 2x"/>
+      <img alt="Beer bottle installation" loading="lazy" src="/cases/c1c.jpg"/>
+     </picture>
+    </div>
+    <h3>
+     Background
+    </h3>
+    <p>
+     When Carlsberg, through Baltic Beverages Holding, acquired the Zolotoy Ural brewery in <strong>2001</strong>, it was a Soviet-style operation with outdated processes, a weak brand portfolio, and declining sales. Within <strong>two years</strong>, we turned it into the fastest-growing regional brewery in Russia, achieving <strong>72%</strong> sales growth, increasing market share from <strong>3.6%</strong> to <strong>8.2%</strong>, and tripling profit.
+    </p>
+    <h3>
+     Challenge: A Brewery in Decline
+    </h3>
+    <p>
+     1. Outdated brand portfolio and lack of marketing discipline.
+    </p>
+    <p>
+     2. A stagnating distributor network with low motivation and limited reach - only <strong>3.7 million</strong> people in the home region.
+    </p>
+    <p>
+     3. Weak brand perception in a market of <strong>29.5 million</strong> consumers.
+    </p>
+    <p>
+     4. Internal resistance to change and dominance of Soviet-era mindsets.
+    </p>
+    <p>
+     The business urgently required a full commercial reset to survive and compete.
+    </p>
+    <h3>
+     Approach: Commercial Rebirth
+    </h3>
+    <p>
+     My role: Sales Director, reporting to the CEO.
+    </p>
+    <p>
+     I led the transformation from the commercial side, focusing on people, processes, execution quality at the point of sale, and building a scalable distribution system. Key steps included:
+    </p>
+    <p>
+     1. Relaunch of the core brand within <strong>2 weeks</strong> of my arrival - rapid implementation of sales fundamentals, KPIs, incentives, and target-setting.
+    </p>
+    <p>
+     2. Building a high-performance team - hiring managers from Coca-Cola, P&amp;G, and other FMCG leaders; introducing clear KPIs and accountability.
+    </p>
+    <p>
+     3. Distribution build-out - partnerships with top distributors, introduction of service quality metrics, and opening <strong>9 regional offices</strong> to expand coverage.
+    </p>
+    <p>
+     4. Introduction of value management - assortment optimization, discount discipline, and CAPEX efficiency in sales.
+    </p>
+    <p>
+     5. Strengthening corporate culture - removal of underperformers, merit-based promotion, and setting a new professional standard.
+    </p>
+    <h3>
+     Results
+    </h3>
+    <p>
+     1. <strong>+72%</strong> sales growth in the first year of transformation.
+    </p>
+    <p>
+     2. Market share increased from <strong>3.6%</strong> to <strong>8.2%</strong> over <strong>two years</strong> (<strong>x2.3</strong>), according to Business Analytica.
+    </p>
+    <p>
+     3. Profit tripled within <strong>two years</strong>.
+    </p>
+    <p>
+     4. Amber Star award from the Union of Brewers of Russia for the fastest growth.
+    </p>
+    <p>
+     5. The Uralsky Master brand entered the <strong>TOP-6</strong> in the region with a population of <strong>29.5 million</strong> and became a benchmark asset within the Carlsberg Group.
+    </p>
+    <h3>
+     Strategic Takeaways
+    </h3>
+    <p>
+     -
+     <strong>
+      Everything starts with the team:
+     </strong>
+     a strong team accelerates transformation.
+    </p>
+    <p>
+     -
+     <strong>
+      Quick wins plus long-term strategy:
+     </strong>
+     immediate momentum paired with deep structural change.
+    </p>
+    <p>
+     -
+     <strong>
+      No sacred cows:
+     </strong>
+     decisive leadership (dismissals, bold investments) is required for a reset.
+    </p>
+    <p>
+     -
+     <strong>
+      Culture is decisive:
+     </strong>
+     mindset change was as important as process improvement.
+    </p>
+    <h3>
+     Conclusion
+    </h3>
+    <p>
+     This case demonstrates how disciplined leadership, modern marketing, and cultural transformation can revive even a legacy business under pressure.
+    </p>
+   </div>
+  </section>
+  
+  <section class="section" style="background-color: #0b1e59;">
+   <div class="container">
+    <div style="margin-top: 0; padding-top: 2rem; border-top: 1px solid rgba(255,255,255,0.2);">
+     <h3 style="margin-bottom: 1.5rem; color: white;">Case Studies</h3>
+     <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1.5rem;">
+      <a href="case2.html" style="display: block; padding: 1rem; background: rgba(255,255,255,0.05); border-radius: 8px; text-decoration: none; color: white; transition: background 0.2s;">
+       <div style="font-size: 1.5rem; margin-bottom: 0.5rem;">🛡️</div>
+       <div style="font-weight: 600; margin-bottom: 0.25rem;">Protecting €132m Asset from State Pressure</div>
+       <div style="font-size: 0.85rem; color: rgba(255,255,255,0.7);">→ Read case study</div>
+      </a>
+      <a href="case3.html" style="display: block; padding: 1rem; background: rgba(255,255,255,0.05); border-radius: 8px; text-decoration: none; color: white; transition: background 0.2s;">
+       <div style="font-size: 1.5rem; margin-bottom: 0.5rem;">🌊</div>
+       <div style="font-weight: 600; margin-bottom: 0.25rem;">Business Continuity: Revolution & War</div>
+       <div style="font-size: 0.85rem; color: rgba(255,255,255,0.7);">→ Read case study</div>
+      </a>
+      <a href="case4.html" style="display: block; padding: 1rem; background: rgba(255,255,255,0.05); border-radius: 8px; text-decoration: none; color: white; transition: background 0.2s;">
+       <div style="font-size: 1.5rem; margin-bottom: 0.5rem;">🦾</div>
+       <div style="font-weight: 600; margin-bottom: 0.25rem;">Modern Trade Turnaround Post-COVID</div>
+       <div style="font-size: 0.85rem; color: rgba(255,255,255,0.7);">→ Read case study</div>
+      </a>
+     </div>
+    </div>
+   </div>
+  </section>
+
+<footer class="footer">
+   ©
+   <span id="y">
+   </span>
+   Evgeny Shevchenko. All rights reserved.
+   <span class="footer-divider">
+    ·
+   </span>
+   <a href="/cookie-policy.en.html">
+    Cookie Policy
+   </a>
+  </footer>
+  <script>
+   document.getElementById('y').textContent = new Date().getFullYear();
+  </script>
+  <!-- Schema.org Structured Data -->
+  <script type="application/ld+json">
+   {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "Case: From Soviet Legacy to the Fastest-Growing Brewery in the Country (Russia, 2003)",
+    "description": "Case study: Turning a struggling Soviet-style brewery into the fastest-growing regional brewery in Russia, achieving 72% sales growth and tripling profit.",
+    "author": {
+      "@type": "Person",
+      "name": "Evgeny Shevchenko",
+      "url": "https://shevchenko.solutions"
+    },
+    "publisher": {
+      "@type": "Person",
+      "name": "Evgeny Shevchenko"
+    },
+    "datePublished": "2003-01-15",
+    "dateModified": "2025-12-05",
+    "url": "https://shevchenko.solutions/en/case1.html",
+    "image": "https://shevchenko.solutions/cases/c1.jpg",
+    "articleSection": "Case Studies",
+    "keywords": [
+      "brewery turnaround",
+      "FMCG consulting",
+      "sales growth",
+      "market share increase",
+      "Russia",
+      "Carlsberg",
+      "commercial turnaround"
+    ],
+    "about": {
+      "@type": "Organization",
+      "name": "Zolotoy Ural Brewery",
+      "location": {
+        "@type": "Place",
+        "address": {
+          "@type": "PostalAddress",
+          "addressCountry": "RU"
+        }
+      }
+    }
+  }
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://shevchenko.solutions/en/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Case Studies",
+      "item": "https://shevchenko.solutions/en/#case-studies"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "Case: From Soviet Legacy to the Fastest-Growing Brewery in the Country (Russia, 2003)",
+      "item": "https://shevchenko.solutions/en/case1.html"
+    }
+  ]
+}
+  </script>
+</script>
+ </body>
+</html>
