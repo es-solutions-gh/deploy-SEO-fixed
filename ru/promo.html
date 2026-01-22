@@ -151,14 +151,14 @@
   <!-- Фиксированная зона под header -->
   <div class="fixed-top-zone">
    <!-- CTA кнопка -->
-   <div class="promo-cta">
-    <span class="cta-text"><span class="cta-line">Обсудим</span> <span class="cta-line">ваш кейс?</span></span>
-    <div class="cta-icons">
-     <a href="" onclick="if (typeof Calendly !== 'undefined') { Calendly.initPopupWidget({url: 'https://calendly.com/evgeny-shevchenko?hide_gdpr_banner=1'}); } else { alert('Loading calendar...'); setTimeout(() => location.reload(), 1000); } return false;" class="cta-icon-link" title="Google Meet">
-      <img src="/assets/GM_logo.png" alt="Google Meet" />
+   <div class="promo-cta" style="position: relative; padding-right: 90px !important;">
+    <span class="cta-text">Обсудить кейс</span>
+    <div class="cta-icons" style="position: absolute !important; right: 1rem !important; top: 50% !important; transform: translateY(-50%) !important; display: flex !important; align-items: center !important; justify-content: center !important; flex-shrink: 0 !important;">
+     <a href="" onclick="if (typeof Calendly !== 'undefined') { Calendly.initPopupWidget({url: 'https://calendly.com/evgeny-shevchenko?hide_gdpr_banner=1'}); } else { alert('Loading calendar...'); setTimeout(() => location.reload(), 1000); } return false;" class="cta-icon-link" title="Calendar" style="display: flex !important; align-items: center !important; justify-content: center !important; width: 36px !important; height: 36px !important; min-width: 36px !important; min-height: 36px !important; max-width: 36px !important; max-height: 36px !important; margin-right: 9px !important;">
+      <img src="/assets/Calendar_icon.png" alt="Calendar" style="width: 36px !important; height: 36px !important; min-width: 36px !important; min-height: 36px !important; max-width: 36px !important; max-height: 36px !important; object-fit: contain !important; display: block !important;" />
      </a>
-     <a href="https://wa.me/351937233515" target="_blank" rel="noopener" class="cta-icon-link" title="WhatsApp">
-      <img src="/assets/WA_logo.png" alt="WhatsApp" />
+     <a href="https://wa.me/351937233515" target="_blank" rel="noopener" class="cta-icon-link" title="WhatsApp" style="display: flex !important; align-items: center !important; justify-content: center !important; width: 36px !important; height: 36px !important; min-width: 36px !important; min-height: 36px !important; max-width: 36px !important; max-height: 36px !important; margin-right: 0 !important;">
+      <img src="/assets/WA_logo.png" alt="WhatsApp" style="width: 36px !important; height: 36px !important; min-width: 36px !important; min-height: 36px !important; max-width: 36px !important; max-height: 36px !important; object-fit: contain !important; display: block !important;" />
      </a>
     </div>
    </div>
