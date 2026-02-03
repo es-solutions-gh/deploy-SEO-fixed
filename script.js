@@ -280,4 +280,77 @@ document.addEventListener("DOMContentLoaded", () => {
   calendlyScript.src = "https://assets.calendly.com/assets/external/widget.js";
   calendlyScript.async = true;
   document.head.appendChild(calendlyScript);
+
+  // ====================
+  // GA4 EVENT TRACKING (Calendly & WhatsApp)
+  // ====================
+  // Dedupe: avoid double-send when both touchstart and click fire on mobile
+  let lastCalendlyTrack = { el: null, t: 0 };
+  let lastWhatsAppTrack = { el: null, t: 0 };
+  const DEDUPE_MS = 600;
+
+  function sendCalendlyEvent() {
+    if (typeof window.gtag !== "function") return;
+    window.gtag("event", "calendly_click", {
+      event_category: "engagement",
+      event_label: "Book consultation",
+    });
+  }
+
+  function sendWhatsAppEvent() {
+    if (typeof window.gtag !== "function") return;
+    window.gtag("event", "whatsapp_click", {
+      event_category: "engagement",
+      event_label: "WhatsApp contact",
+    });
+  }
+
+  function findCalendlyButton(target) {
+    let el = target;
+    while (el && el !== document) {
+      if (el.onclick && el.onclick.toString().includes("Calendly")) {
+        return el;
+      }
+      if (el.classList && el.classList.contains("cta-link")) {
+        return el;
+      }
+      el = el.parentElement;
+    }
+    return null;
+  }
+
+  function handleEngagementClick(e) {
+    const calendlyEl = findCalendlyButton(e.target);
+    const whatsappEl = e.target.closest('a[href*="wa.me"], a[href*="whatsapp.com"]');
+
+    if (calendlyEl) {
+      const now = Date.now();
+      if (lastCalendlyTrack.el === calendlyEl && now - lastCalendlyTrack.t < DEDUPE_MS) return;
+      lastCalendlyTrack = { el: calendlyEl, t: now };
+      sendCalendlyEvent();
+    }
+    if (whatsappEl) {
+      const now = Date.now();
+      if (lastWhatsAppTrack.el === whatsappEl && now - lastWhatsAppTrack.t < DEDUPE_MS) return;
+      lastWhatsAppTrack = { el: whatsappEl, t: now };
+      sendWhatsAppEvent();
+    }
+  }
+
+  function handleEngagementTouchStart(e) {
+    const calendlyEl = findCalendlyButton(e.target);
+    const whatsappEl = e.target.closest('a[href*="wa.me"], a[href*="whatsapp.com"]');
+
+    if (calendlyEl) {
+      lastCalendlyTrack = { el: calendlyEl, t: Date.now() };
+      sendCalendlyEvent();
+    }
+    if (whatsappEl) {
+      lastWhatsAppTrack = { el: whatsappEl, t: Date.now() };
+      sendWhatsAppEvent();
+    }
+  }
+
+  document.addEventListener("click", handleEngagementClick, true);
+  document.addEventListener("touchstart", handleEngagementTouchStart, true);
 });
