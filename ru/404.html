@@ -1,6 +1,58 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
+<!-- Google Consent Mode v2 - Must be before any Google tags -->
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag() { dataLayer.push(arguments); }
+  gtag('consent', 'default', {
+    'ad_user_data': 'denied',
+    'ad_personalization': 'denied',
+    'ad_storage': 'denied',
+    'analytics_storage': 'denied',
+    'wait_for_update': 500,
+  });
+</script>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=AW-17869913918"></script>
+<script>
+  gtag('js', new Date());
+  gtag('config', 'AW-17869913918');
+</script>
+<!-- Event snippet for Calendly appointment conversion page -->
+<script>
+function gtag_report_conversion(url) {
+  var callback = function () {
+    if (typeof(url) != 'undefined') {
+      window.location = url;
+    }
+  };
+  gtag('event', 'conversion', {
+      'send_to': 'AW-17869913918/at5BCK-hk_IbEL7-hMlC',
+      'value': 1.0,
+      'currency': 'EUR',
+      'event_callback': callback
+  });
+  return false;
+}
+</script>
+<!-- Event snippet for WhatsApp message conversion page -->
+<script>
+function gtag_report_conversion_whatsapp(url) {
+  var callback = function () {
+    if (typeof(url) != 'undefined') {
+      window.location = url;
+    }
+  };
+  gtag('event', 'conversion', {
+      'send_to': 'AW-17869913918/l_GLCLKhk_IbEL7-hMlC',
+      'value': 1.0,
+      'currency': 'EUR',
+      'event_callback': callback
+  });
+  return false;
+}
+</script>
   <meta charset="utf-8"/>
   <meta content="width=device-width, initial-scale=1" name="viewport"/>
   <meta content="Страница не найдена" name="description"/>
@@ -19,7 +71,7 @@
       </a>
       <!-- CTA (Desktop) -->
       <div style="display: flex; flex-direction: column; align-items: center;">
-       <a class="cta-link desktop-only" href="" onclick="if (typeof Calendly !== 'undefined') { Calendly.initPopupWidget({url: 'https://calendly.com/evgeny-shevchenko?hide_gdpr_banner=1'}); } else { alert('Loading calendar...'); setTimeout(() => location.reload(), 1000); } return false;">
+       <a class="cta-link desktop-only" href="" onclick="gtag_report_conversion(); if (typeof Calendly !== 'undefined') { Calendly.initPopupWidget({url: 'https://calendly.com/evgeny-shevchenko?hide_gdpr_banner=1'}); } else { alert('Loading calendar...'); setTimeout(() => location.reload(), 1000); } return false;">
         Обсудить кейс
        </a>
        <small style="font-size: 0.6rem; opacity: 0.9; color: white; display: block; margin-top: 0.25rem; text-align: left;">30 минут | Конфиденциально</small>
@@ -87,7 +139,7 @@
       </div>
       <!-- CTA (Mobile) -->
       <div style="display: flex; flex-direction: column; align-items: center;">
-       <a class="cta-link mobile-cta" href="" onclick="if (typeof Calendly !== 'undefined') { Calendly.initPopupWidget({url: 'https://calendly.com/evgeny-shevchenko?hide_gdpr_banner=1'}); } else { alert('Loading calendar...'); setTimeout(() => location.reload(), 1000); } return false;">
+       <a class="cta-link mobile-cta" href="" onclick="gtag_report_conversion(); if (typeof Calendly !== 'undefined') { Calendly.initPopupWidget({url: 'https://calendly.com/evgeny-shevchenko?hide_gdpr_banner=1'}); } else { alert('Loading calendar...'); setTimeout(() => location.reload(), 1000); } return false;">
         Обсудить кейс
        </a>
        <small style="font-size: 0.6rem; opacity: 0.9; color: white; display: block; margin-top: 0.25rem; text-align: left;">30 минут | Конфиденциально</small>
