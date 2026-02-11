@@ -252,6 +252,12 @@ document.addEventListener("DOMContentLoaded", () => {
             return;
           }
 
+          // Thank-you page: always go to language home
+          if (currentPage === 'thank_you.html') {
+            window.location.href = langData[selectedLang].path;
+            return;
+          }
+
           // Regular page handling
           let newPath;
           if (selectedLang === 'en') {
