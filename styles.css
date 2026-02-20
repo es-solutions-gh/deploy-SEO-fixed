@@ -57,6 +57,18 @@ a {
   color: inherit;
 }
 
+a.social-button {
+  text-decoration: none;
+  color: white;
+}
+
+a.social-button:focus,
+a.social-button:active {
+  outline: none;
+  border: none;
+  box-shadow: none;
+}
+
 /* ===== HEADER ===== */
 .header {
   background-color: #0b1e59;
@@ -151,6 +163,21 @@ a {
   text-align: left !important;
 }
 
+.cta-link.desktop-only.header-cta {
+  min-width: 280px;
+  padding-top: 0.6rem !important;
+  padding-bottom: 0.6rem !important;
+  padding-left: 0.63rem !important;
+  /* padding-right остается из инлайн-стиля: 90px */
+}
+
+.desktop-only.header-cta > div:not(.cta-icons),
+.desktop-only.header-cta > small {
+  width: auto !important;
+  max-width: 100% !important;
+  overflow: hidden !important;
+}
+
 .header-cta .cta-text {
   color: white;
   font-weight: 600;
@@ -158,7 +185,7 @@ a {
   white-space: normal;
   flex-shrink: 1;
   min-width: 0;
-  overflow: visible;
+  overflow: hidden;
   display: flex;
   flex-direction: column;
   text-align: left !important;
@@ -339,8 +366,16 @@ a {
     margin-left: 70px; /* 20% of portrait max-width (350px) */
   }
   
-  .hero-img > a {
+  .hero-img > a:not(.social-button) {
     margin-left: 70px; /* 20% of portrait max-width (350px) */
+  }
+
+  .social-buttons-mobile {
+    display: none !important;
+  }
+
+  .social-buttons-desktop {
+    display: flex !important;
   }
 }
 
@@ -408,6 +443,7 @@ a {
   justify-content: flex-start;
   align-items: flex-start;
   gap: 0;
+  position: relative;
 }
 
 .hero-img picture {
@@ -423,7 +459,7 @@ a {
   box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
 }
 
-.hero-img a {
+.hero-img > a:not(.social-button) {
   display: block;
   width: auto;
   max-width: none;
@@ -433,12 +469,12 @@ a {
   margin-top: 48px;
 }
 
-.hero-img a:hover {
+.hero-img > a:not(.social-button):hover {
   transform: translateY(-2px);
   box-shadow: 0 12px 40px rgba(0, 0, 0, 0.5);
 }
 
-.hero-img a img {
+.hero-img > a:not(.social-button) img {
   height: 48px; /* Равна высоте CTA кнопки (min-height: 48px + padding) */
   width: auto; /* Сохраняем пропорции */
   max-width: 300px; /* Ограничиваем максимальную ширину */
@@ -446,6 +482,127 @@ a {
   box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
   display: block;
   object-fit: contain;
+}
+
+/* Social media buttons - Desktop (to the right of photo) */
+.hero-img {
+  position: relative;
+}
+
+.social-buttons-desktop {
+  position: absolute;
+  left: calc(100% + 20px);
+  top: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  align-items: center;
+  z-index: 10;
+}
+
+.social-button {
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  text-decoration: none !important;
+  color: white !important;
+  transition: color 0.2s ease !important;
+  outline: none !important;
+  border: none !important;
+  background: transparent !important;
+  box-shadow: none !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+.social-button:hover {
+  transform: none !important;
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+  outline: none !important;
+}
+
+.social-button:hover span {
+  color: #f90 !important;
+}
+
+.social-button:focus,
+.social-button:active,
+.social-button:focus-visible {
+  outline: none !important;
+  border: none !important;
+  box-shadow: none !important;
+  background: transparent !important;
+}
+
+.social-button img {
+  width: 34px !important;
+  height: 34px !important;
+  display: block !important;
+  margin-bottom: 4px !important;
+  object-fit: contain !important;
+  background: transparent !important;
+  border: none !important;
+  outline: none !important;
+  box-shadow: none !important;
+  padding: 0 !important;
+}
+
+.social-button img[src*="Telegram"] {
+  background: transparent !important;
+  border-radius: 0 !important;
+}
+
+.social-button span {
+  font-size: 0.6rem !important;
+  text-align: center !important;
+  white-space: nowrap !important;
+  transition: color 0.2s ease !important;
+  color: white !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  line-height: 1.2 !important;
+}
+
+/* Social media buttons - Mobile (under photo, to the right of IMD) */
+.social-buttons-mobile {
+  display: flex;
+  flex-direction: row;
+  gap: 12px;
+  align-items: center;
+  margin-left: 12px;
+}
+
+.social-buttons-mobile .social-button {
+  flex-direction: column;
+  outline: none;
+  border: none;
+  background: transparent;
+}
+
+.social-buttons-mobile .social-button:hover span {
+  color: #f90;
+}
+
+.social-buttons-mobile .social-button:focus,
+.social-buttons-mobile .social-button:active {
+  outline: none;
+  border: none;
+  box-shadow: none;
+}
+
+.social-buttons-mobile .social-button img {
+  width: 40px;
+  height: 40px;
+  margin-bottom: 4px;
+  object-fit: contain;
+  background: transparent;
+}
+
+.social-buttons-mobile .social-button span {
+  font-size: 0.75rem;
+  transition: color 0.2s ease;
 }
 
 /* ===== SECTIONS ===== */
@@ -1092,6 +1249,67 @@ a {
   font-size: 0.9rem;
   border-top: 1px solid rgba(255, 255, 255, 0.1);
   background-color: #1a1f3a;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 1rem;
+  position: relative;
+}
+
+.footer-content {
+  flex: 1;
+  text-align: center;
+  order: 2;
+}
+
+.footer-social-buttons.desktop-only {
+  order: 1;
+  display: flex;
+  gap: 16px;
+  align-items: center;
+  flex-shrink: 0;
+}
+
+.footer-social-buttons.mobile-only {
+  display: none;
+}
+
+.footer-social-buttons .social-button {
+  flex-direction: column !important;
+  outline: none !important;
+  border: none !important;
+  background: transparent !important;
+  box-shadow: none !important;
+}
+
+.footer-social-buttons .social-button:hover span {
+  color: #f90 !important;
+}
+
+.footer-social-buttons .social-button:focus,
+.footer-social-buttons .social-button:active,
+.footer-social-buttons .social-button:focus-visible {
+  outline: none !important;
+  border: none !important;
+  box-shadow: none !important;
+  background: transparent !important;
+}
+
+.footer-social-buttons .social-button img {
+  width: 40px !important;
+  height: 40px !important;
+  margin-bottom: 4px !important;
+  object-fit: contain !important;
+  background: transparent !important;
+  border: none !important;
+  outline: none !important;
+}
+
+.footer-social-buttons .social-button span {
+  font-size: 0.75rem !important;
+  transition: color 0.2s ease !important;
+  color: white !important;
 }
 
 .footer-divider {
@@ -1099,13 +1317,13 @@ a {
   color: #999;
 }
 
-.footer a {
+.footer a:not(.social-button) {
   text-decoration: underline;
   color: rgba(255, 255, 255, 0.9);
   transition: color 0.2s;
 }
 
-.footer a:hover {
+.footer a:not(.social-button):hover {
   color: #f90;
 }
 
@@ -1758,6 +1976,7 @@ body.menu-open::before {
 
   .hero-img {
     order: -1;
+    position: relative;
   }
 
   .hero-img img {
@@ -1769,6 +1988,19 @@ body.menu-open::before {
   .hero .mobile-only {
     max-width: 100%;
     width: 100%;
+  }
+
+  .social-buttons-desktop {
+    display: none !important;
+  }
+
+  .social-buttons-mobile {
+    display: flex !important;
+  }
+
+  /* Mobile container for IMD and social buttons */
+  .hero .social-imd-container {
+    display: flex !important;
   }
   
   /* Mobile portrait image styling */
@@ -2009,6 +2241,34 @@ body.menu-open::before {
     padding-left: max(1rem, var(--safe-area-inset-left));
     padding-right: max(1rem, var(--safe-area-inset-right));
     line-height: 1.8;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+
+  .footer-content {
+    text-align: left;
+    width: 100%;
+    order: 1;
+  }
+
+  .footer-social-buttons.desktop-only {
+    display: none !important;
+  }
+
+  .footer-social-buttons.mobile-only {
+    display: flex !important;
+    align-self: flex-end;
+    margin-top: 0.5rem;
+    order: 2;
+  }
+
+  .social-buttons-desktop {
+    display: none !important;
+  }
+
+  .social-buttons-mobile {
+    display: flex !important;
   }
 }
 
@@ -3041,4 +3301,12 @@ body.promo-page {
     right: unset !important;
     transform: none !important;
   }
+}
+
+/* Fix для Safari: уменьшаем левый padding CTA кнопки на desktop */
+body .header .cta-link.desktop-only.header-cta,
+body header .cta-link.desktop-only.header-cta {
+  padding-left: 0.63rem !important;
+  padding-top: 0.6rem !important;
+  padding-bottom: 0.6rem !important;
 }
