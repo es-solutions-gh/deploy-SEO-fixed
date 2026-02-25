@@ -50,7 +50,7 @@
   <link href="/assets/favicon.svg" rel="icon" type="image/svg+xml"/>
   <link href="/assets/apple-touch-icon.png" rel="apple-touch-icon" sizes="180x180"/>
   <link href="/styles.css" rel="stylesheet"/>
-  <script defer="" src="/script.js">
+  <script defer="" src="/script.js?v=20260224">
   </script>
  </head>
  <body>
@@ -250,16 +250,30 @@
    </section>
   </main>
   <footer class="footer">
-   ©
-   <span id="y">
-   </span>
-   Evgeny Shevchenko. Все права защищены.
-   <span class="footer-divider">
-    ·
-   </span>
-  <a href="/ru/">
-    Главная
-   </a>
+   <div class="footer-inner">
+    <div class="footer-social">
+     <a href="https://www.youtube.com/@Бизнесбезфильтров" target="_blank" rel="noopener" class="footer-social-link" aria-label="YouTube @BusinessUnfiltered">
+      <img src="/assets/Youtube_logo.png" alt="" class="footer-social-icon" width="32" height="32" />
+      <span class="footer-social-label">@Business<wbr>Unfiltered</span>
+     </a>
+     <a href="https://t.me/shevchenko_solutions" target="_blank" rel="noopener" class="footer-social-link" aria-label="Telegram @shevchenko_solutions">
+      <img src="/assets/Telegram_logo.png" alt="" class="footer-social-icon" width="32" height="32" />
+      <span class="footer-social-label">@shevchenko_<wbr>solutions</span>
+     </a>
+    </div>
+    <div class="footer-text">
+     ©
+     <span id="y">
+     </span>
+     Evgeny Shevchenko. Все права защищены.
+     <span class="footer-divider">
+      ·
+     </span>
+     <a href="/ru/">
+      Главная
+     </a>
+    </div>
+   </div>
   </footer>
   <script>
    document.getElementById('y').textContent = new Date().getFullYear();

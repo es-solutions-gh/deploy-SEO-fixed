@@ -26,8 +26,8 @@ function gtag_report_conversion(url) {
   return false;
 }
 function gtag_report_conversion_whatsapp(url) {
-  var callback = function () { if (typeof url != 'undefined') window.location = url; };
-  gtag('event', 'conversion', { 'send_to': 'AW-17869913918/l_GLCLKhk_IbEL7-hMlC', 'value': 1.0, 'currency': 'EUR', 'event_callback': callback });
+  if (typeof url != 'undefined') window.open(url, '_blank', 'noopener');
+  gtag('event', 'conversion', { 'send_to': 'AW-17869913918/l_GLCLKhk_IbEL7-hMlC', 'value': 1.0, 'currency': 'EUR' });
   return false;
 }
 </script>
@@ -64,7 +64,7 @@ function gtag_report_conversion_whatsapp(url) {
 <link href="/assets/apple-touch-icon.png" rel="apple-touch-icon" sizes="180x180"/>
 <link rel="preconnect" href="https://assets.calendly.com"/>
 <link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet"/>
-<link href="/styles.min.css?v=20260211" rel="stylesheet"/>
+<link href="/styles.min.css?v=20260224" rel="stylesheet"/>
 <script src="https://assets.calendly.com/assets/external/widget.js" async></script>
 <style>
 .thank-you-hero {
@@ -152,10 +152,10 @@ function gtag_report_conversion_whatsapp(url) {
   border-radius: 12px;
   box-shadow: 0 8px 32px rgba(0,0,0,0.4);
 }
-@media (min-width: 769px) {
+@media (min-width: 1101px) {
   .thank-you-actions { justify-content: flex-start; }
 }
-@media (max-width: 768px) {
+@media (max-width: 1100px) {
   .thank-you-hero { padding: 0 0 1.5rem; min-height: auto; }
   .thank-you-hero .container { padding: 0 1rem; }
   .thank-you-grid {
@@ -217,7 +217,7 @@ function gtag_report_conversion_whatsapp(url) {
   .thank-you-page .header .mobile-cta { display: none !important; }
 }
 </style>
-<script defer src="/script.js?v=20260211"></script>
+<script defer src="/script.js?v=20260224"></script>
 </head>
 <body class="thank-you-page">
 <header class="header">
@@ -234,15 +234,15 @@ function gtag_report_conversion_whatsapp(url) {
         <a href="" onclick="gtag_report_conversion(); if (typeof Calendly !== 'undefined') { Calendly.initPopupWidget({url: 'https://calendly.com/evgeny-shevchenko?hide_gdpr_banner=1'}); } else { alert('Loading calendar...'); setTimeout(() => location.reload(), 1000); } return false;" class="cta-icon-link" title="Calendar" style="display: flex !important; align-items: center !important; justify-content: center !important; width: 36px !important; height: 36px !important; margin-right: 9px !important;">
           <img src="/assets/Calendar_icon.png" alt="Calendar" style="width: 36px !important; height: 36px !important; max-width: 36px !important; max-height: 36px !important; object-fit: contain !important; display: block !important;" />
         </a>
-        <a href="https://wa.me/351937233515" target="_blank" rel="noopener" class="cta-icon-link" title="WhatsApp" onclick="gtag_report_conversion_whatsapp('https://wa.me/351937233515'); return false;" style="display: flex !important; align-items: center !important; justify-content: center !important; width: 36px !important; height: 36px !important; margin-right: 0 !important;">
+        <a href="https://wa.me/351937233515?text=Evgeny%2C%20I%27d%20like%20to%20discuss%20a%20business%20assessment" target="_blank" rel="noopener" class="cta-icon-link" title="WhatsApp" onclick="gtag_report_conversion_whatsapp('https://wa.me/351937233515?text=Evgeny%2C%20I%27d%20like%20to%20discuss%20a%20business%20assessment'); return false;" style="display: flex !important; align-items: center !important; justify-content: center !important; width: 36px !important; height: 36px !important; margin-right: 0 !important;">
           <img src="/assets/WA_logo.png" alt="WhatsApp" style="width: 36px !important; height: 36px !important; max-width: 36px !important; max-height: 36px !important; object-fit: contain !important; display: block !important;" />
         </a>
       </div>
     </div>
     <nav class="nav">
-      <a href="/en/#about-me">About Me</a>
-      <a href="/en/#case-studies">Case Studies</a>
-      <a href="/en/#how-i-help">What I work with</a>
+      <a href="/en/#about-me">About</a>
+      <a href="/en/#how-i-help">What I Work With</a>
+      <a href="/en/#case-studies">Cases</a>
       <a href="/en/#what-clients-say">References</a>
       <a href="/en/#pricing">Formats & Pricing</a>
       <a href="/en/#press-media">Media</a>
@@ -283,7 +283,7 @@ function gtag_report_conversion_whatsapp(url) {
         <a href="" onclick="gtag_report_conversion(); if (typeof Calendly !== 'undefined') { Calendly.initPopupWidget({url: 'https://calendly.com/evgeny-shevchenko?hide_gdpr_banner=1'}); } else { alert('Loading calendar...'); setTimeout(() => location.reload(), 1000); } return false;" class="cta-icon-link" title="Calendar" style="display: flex !important; align-items: center !important; justify-content: center !important; width: 36px !important; height: 36px !important; margin-right: 9px !important;">
           <img src="/assets/Calendar_icon.png" alt="Calendar" style="width: 36px !important; height: 36px !important; object-fit: contain !important; display: block !important;" />
         </a>
-        <a href="https://wa.me/351937233515" target="_blank" rel="noopener" class="cta-icon-link" title="WhatsApp" onclick="gtag_report_conversion_whatsapp('https://wa.me/351937233515'); return false;" style="display: flex !important; align-items: center !important; justify-content: center !important; width: 36px !important; height: 36px !important; margin-right: 0 !important;">
+        <a href="https://wa.me/351937233515?text=Evgeny%2C%20I%27d%20like%20to%20discuss%20a%20business%20assessment" target="_blank" rel="noopener" class="cta-icon-link" title="WhatsApp" onclick="gtag_report_conversion_whatsapp('https://wa.me/351937233515?text=Evgeny%2C%20I%27d%20like%20to%20discuss%20a%20business%20assessment'); return false;" style="display: flex !important; align-items: center !important; justify-content: center !important; width: 36px !important; height: 36px !important; margin-right: 0 !important;">
           <img src="/assets/WA_logo.png" alt="WhatsApp" style="width: 36px !important; height: 36px !important; object-fit: contain !important; display: block !important;" />
         </a>
       </div>
@@ -320,9 +320,23 @@ function gtag_report_conversion_whatsapp(url) {
 </section>
 
 <footer class="footer">
-  © <span id="thank-you-year"></span> Evgeny Shevchenko. All rights reserved.
-  <span class="footer-divider">·</span>
-  <a href="/cookie-policy.en.html">Cookie Policy</a>
+  <div class="footer-inner">
+   <div class="footer-social">
+    <a href="https://www.youtube.com/@Бизнесбезфильтров" target="_blank" rel="noopener" class="footer-social-link" aria-label="YouTube @BusinessUnfiltered">
+     <img src="/assets/Youtube_logo.png" alt="" class="footer-social-icon" width="32" height="32" />
+     <span class="footer-social-label">@Business<wbr>Unfiltered</span>
+    </a>
+    <a href="https://t.me/shevchenko_solutions" target="_blank" rel="noopener" class="footer-social-link" aria-label="Telegram @shevchenko_solutions">
+     <img src="/assets/Telegram_logo.png" alt="" class="footer-social-icon" width="32" height="32" />
+     <span class="footer-social-label">@shevchenko_<wbr>solutions</span>
+    </a>
+   </div>
+   <div class="footer-text">
+    © <span id="thank-you-year"></span> Evgeny Shevchenko. All rights reserved.
+    <span class="footer-divider">·</span>
+    <a href="/cookie-policy.en.html">Cookie Policy</a>
+   </div>
+  </div>
 </footer>
 
 <script>
