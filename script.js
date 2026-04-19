@@ -1,153 +1,8 @@
 document.addEventListener("DOMContentLoaded", () => {
-  // ====================
-  // GOOGLE CONSENT MODE & ANALYTICS
-  // ====================
-  // Google Analytics Measurement ID
-  const GA_MEASUREMENT_ID = 'G-7HMEBM3RC9';
-  
-  // DEBUG MODE: Set to true to load GA for Tag Assistant testing (disable in production!)
-  const DEBUG_MODE = true; // Set to true only for testing with Tag Assistant
-
-  // Initialize gtag function if not already defined
+  // Initialize gtag if not already defined (for GA4 events)
   window.dataLayer = window.dataLayer || [];
   function gtag() { dataLayer.push(arguments); }
   window.gtag = gtag;
-
-  // Function to update Consent Mode based on user preferences
-  function updateConsentMode(analyticsGranted, marketingGranted) {
-    const consentParams = {
-      ad_user_data: marketingGranted ? 'granted' : 'denied',
-      ad_personalization: marketingGranted ? 'granted' : 'denied',
-      ad_storage: marketingGranted ? 'granted' : 'denied',
-      analytics_storage: analyticsGranted ? 'granted' : 'denied',
-    };
-    gtag('consent', 'update', consentParams);
-  }
-
-  // Function to load Google Analytics
-  function loadGoogleAnalytics() {
-    if (GA_MEASUREMENT_ID === 'G-XXXXXXXXXX') {
-      // Google Analytics ID not configured yet
-      return;
-    }
-
-    // Check if already loaded
-    if (document.querySelector(`script[src*="gtag/js?id=${GA_MEASUREMENT_ID}"]`)) {
-      return;
-    }
-
-    // Load gtag.js
-    const gtagScript = document.createElement('script');
-    gtagScript.async = true;
-    gtagScript.src = `https://www.googletagmanager.com/gtag/js?id=${GA_MEASUREMENT_ID}`;
-    document.head.appendChild(gtagScript);
-
-    // Initialize Google Analytics
-    gtag('js', new Date());
-    gtag('config', GA_MEASUREMENT_ID);
-  }
-
-  // Check existing consent and apply it
-  const existingConsent = localStorage.getItem("cookie-consent");
-  const analyticsEnabled = localStorage.getItem("cookie-analytics-enabled") === "true";
-  const marketingEnabled = localStorage.getItem("cookie-marketing-enabled") === "true";
-
-  // DEBUG MODE: Load GA for Tag Assistant testing (without consent)
-  if (DEBUG_MODE) {
-    updateConsentMode(true, true);
-    loadGoogleAnalytics();
-  } else if (existingConsent === "all") {
-    // User previously accepted all cookies
-    updateConsentMode(true, true);
-    loadGoogleAnalytics();
-  } else if (existingConsent === "custom") {
-    // User previously set custom preferences
-    updateConsentMode(analyticsEnabled, marketingEnabled);
-    if (analyticsEnabled) {
-      loadGoogleAnalytics();
-    }
-  }
-
-  // ====================
-  // COOKIE CONSENT
-  // ====================
-  const banner = document.getElementById("cookie-banner");
-  const modal = document.getElementById("cookie-modal");
-  const manageBtn = document.getElementById("cookie-manage");
-  const closeBtn = document.getElementById("cookie-close-modal");
-  const form = document.getElementById("cookie-form");
-  const analyticsCheckbox = document.getElementById("analytics-cookies");
-  const marketingCheckbox = document.getElementById("marketing-cookies");
-
-  // Show banner only if not already accepted
-  if (banner && !existingConsent) {
-    banner.classList.remove("hidden");
-  }
-
-  // Restore checkbox states if custom consent was previously set
-  if (existingConsent === "custom") {
-    if (analyticsCheckbox) analyticsCheckbox.checked = analyticsEnabled;
-    if (marketingCheckbox) marketingCheckbox.checked = marketingEnabled;
-  }
-
-  // Always initialize modal handlers
-  if (manageBtn && modal) {
-    manageBtn.addEventListener("click", () => {
-      if (banner) banner.classList.add("hidden");
-      modal.classList.remove("hidden");
-    });
-  }
-
-  if (closeBtn && modal) {
-    closeBtn.addEventListener("click", () => {
-      modal.classList.add("hidden");
-    });
-  }
-
-  // Close modal on backdrop click
-  if (modal) {
-    modal.addEventListener("click", (e) => {
-      if (e.target === modal) {
-        modal.classList.add("hidden");
-      }
-    });
-  }
-
-  if (form && modal) {
-    form.addEventListener("submit", (e) => {
-      e.preventDefault();
-      const analyticsChecked = analyticsCheckbox ? analyticsCheckbox.checked : false;
-      const marketingChecked = marketingCheckbox ? marketingCheckbox.checked : false;
-
-      localStorage.setItem("cookie-consent", "custom");
-      localStorage.setItem("cookie-analytics-enabled", analyticsChecked.toString());
-      localStorage.setItem("cookie-marketing-enabled", marketingChecked.toString());
-
-      updateConsentMode(analyticsChecked, marketingChecked);
-
-      if (analyticsChecked) {
-        loadGoogleAnalytics();
-      }
-
-      modal.classList.add("hidden");
-      if (banner) banner.classList.add("hidden");
-    });
-  }
-
-  const acceptAllBtn = document.getElementById("cookie-accept");
-  if (acceptAllBtn && banner) {
-    acceptAllBtn.addEventListener("click", () => {
-      localStorage.setItem("cookie-consent", "all");
-      localStorage.setItem("cookie-analytics-enabled", "true");
-      localStorage.setItem("cookie-marketing-enabled", "true");
-
-      updateConsentMode(true, true);
-      loadGoogleAnalytics();
-
-      banner.classList.add("hidden");
-      if (modal) modal.classList.add("hidden");
-    });
-  }
 
   // ====================
   // MOBILE MENU
@@ -249,6 +104,11 @@ document.addEventListener("DOMContentLoaded", () => {
           // Special handling for cookie policy pages
           if (currentPage.startsWith('cookie-policy')) {
             window.location.href = `/cookie-policy.${selectedLang}.html`;
+            return;
+          }
+          // Special handling for privacy policy pages
+          if (currentPage.startsWith('privacy-policy')) {
+            window.location.href = `/privacy-policy.${selectedLang}.html`;
             return;
           }
 
@@ -359,4 +219,40 @@ document.addEventListener("DOMContentLoaded", () => {
 
   document.addEventListener("click", handleEngagementClick, true);
   document.addEventListener("touchstart", handleEngagementTouchStart, true);
+
+  // ====================
+  // ENHANCED CONVERSIONS (Google Ads) — Calendly postMessage
+  // ====================
+  window.addEventListener("message", function (e) {
+    if (e.origin !== "https://calendly.com" && !e.origin.endsWith(".calendly.com")) return;
+    if (e.data.event && e.data.event === "calendly.event_scheduled") {
+      var p = e.data.payload;
+      var email = (p && p.invitee && p.invitee.email) || (p && p.data && p.data.invitee && p.data.invitee.email);
+      if (email && typeof window.gtag === "function") {
+        window.gtag("set", "user_data", { email: email });
+      }
+    }
+  });
+
+  // ====================
+  // PROOF CAROUSEL DOTS (Military Crisis promo page)
+  // ====================
+  const proofCarousel = document.querySelector(".proof-carousel");
+  const proofDots = document.querySelectorAll(".proof-carousel-dot");
+  if (proofCarousel && proofDots.length > 0) {
+    proofDots.forEach((dot, i) => {
+      dot.addEventListener("click", () => {
+        const slideWidth = proofCarousel.clientWidth;
+        proofCarousel.scrollTo({ left: i * slideWidth, behavior: "smooth" });
+        proofDots.forEach((d) => d.classList.remove("active"));
+        dot.classList.add("active");
+      });
+    });
+    proofCarousel.addEventListener("scroll", () => {
+      const scrollLeft = proofCarousel.scrollLeft;
+      const slideWidth = proofCarousel.clientWidth;
+      const activeIdx = slideWidth <= 0 ? 0 : Math.round(scrollLeft / slideWidth);
+      proofDots.forEach((d, i) => d.classList.toggle("active", i === activeIdx));
+    });
+  }
 });

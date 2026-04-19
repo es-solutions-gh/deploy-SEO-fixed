@@ -1,0 +1,21 @@
+# SpecStory CLI Configuration — deploy-SEO-fixed
+# Docs: https://docs.specstory.com
+
+[local_sync]
+# Markdown files saved locally — enabled by default
+# Saving directly to Obsidian vault for knowledge base
+output_dir = "/Users/evgenyshevchenko/Library/CloudStorage/OneDrive-Personal/Career/Freelance/shevchenko-wiki/website/Cursor/history"
+local_time_zone = true
+
+[cloud_sync]
+# Sync to SpecStory Cloud (default: true when logged in)
+# enabled = false
+
+[logging]
+# console = true
+
+[version_check]
+enabled = true
+
+[analytics]
+enabled = true

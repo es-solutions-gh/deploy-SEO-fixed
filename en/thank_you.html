@@ -13,11 +13,37 @@
     'wait_for_update': 500,
   });
 </script>
+<script>
+  (function(){
+    try {
+      var c = localStorage.getItem('cookie-consent');
+      if (c) {
+        var p = JSON.parse(c);
+        if (p && typeof p.analytics === 'boolean' && typeof p.marketing === 'boolean') {
+          gtag('consent', 'update', {
+            'ad_storage': p.marketing ? 'granted' : 'denied',
+            'ad_user_data': p.marketing ? 'granted' : 'denied',
+            'ad_personalization': p.marketing ? 'granted' : 'denied',
+            'analytics_storage': p.analytics ? 'granted' : 'denied'
+          });
+        }
+      }
+    } catch(e){}
+  })();
+</script>
 <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=AW-17869913918"></script>
 <script>
   gtag('js', new Date());
   gtag('config', 'AW-17869913918');
+</script>
+<!-- Conversion: Calendly - Thank You Page (Page load) -->
+<script>
+  gtag('event', 'conversion', {
+    'send_to': 'AW-17869913918/at5BCK-hk_IbEL7-hMlC',
+    'value': 1.0,
+    'currency': 'EUR'
+  });
 </script>
 <script>
 function gtag_report_conversion(url) {
@@ -64,7 +90,7 @@ function gtag_report_conversion_whatsapp(url) {
 <link href="/assets/apple-touch-icon.png" rel="apple-touch-icon" sizes="180x180"/>
 <link rel="preconnect" href="https://assets.calendly.com"/>
 <link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet"/>
-<link href="/styles.min.css?v=20260224" rel="stylesheet"/>
+<link href="/styles.min.css?v=20260315" rel="stylesheet"/>
 <script src="https://assets.calendly.com/assets/external/widget.js" async></script>
 <style>
 .thank-you-hero {
@@ -217,7 +243,8 @@ function gtag_report_conversion_whatsapp(url) {
   .thank-you-page .header .mobile-cta { display: none !important; }
 }
 </style>
-<script defer src="/script.js?v=20260224"></script>
+<script defer src="/cookie-consent.js?v=20260315"></script>
+<script defer src="/script.js?v=20260315"></script>
 </head>
 <body class="thank-you-page">
 <header class="header">
@@ -335,6 +362,8 @@ function gtag_report_conversion_whatsapp(url) {
     © <span id="thank-you-year"></span> Evgeny Shevchenko. All rights reserved.
     <span class="footer-divider">·</span>
     <a href="/cookie-policy.en.html">Cookie Policy</a>
+    <span class="footer-divider">·</span>
+    <a href="/privacy-policy.en.html">Privacy Policy</a>
    </div>
   </div>
 </footer>

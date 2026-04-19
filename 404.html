@@ -13,6 +13,24 @@
     'wait_for_update': 500,
   });
 </script>
+<script>
+  (function(){
+    try {
+      var c = localStorage.getItem('cookie-consent');
+      if (c) {
+        var p = JSON.parse(c);
+        if (p && typeof p.analytics === 'boolean' && typeof p.marketing === 'boolean') {
+          gtag('consent', 'update', {
+            'ad_storage': p.marketing ? 'granted' : 'denied',
+            'ad_user_data': p.marketing ? 'granted' : 'denied',
+            'ad_personalization': p.marketing ? 'granted' : 'denied',
+            'analytics_storage': p.analytics ? 'granted' : 'denied'
+          });
+        }
+      }
+    } catch(e){}
+  })();
+</script>
 <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=AW-17869913918"></script>
 <script>
@@ -57,7 +75,8 @@ function gtag_report_conversion_whatsapp(url) {
   <link href="/assets/favicon.ico" rel="icon" type="image/x-icon"/>
   <link href="/assets/favicon.svg" rel="icon" type="image/svg+xml"/>
   <link href="/styles.css" rel="stylesheet"/>
-  <script defer src="/script.js?v=20260224"></script>
+  <script defer src="/cookie-consent.js?v=20260315"></script>
+  <script defer src="/script.js?v=20260315"></script>
   <script>
     // Try to detect language from URL or browser
     (function() {
@@ -189,6 +208,8 @@ function gtag_report_conversion_whatsapp(url) {
      © <span id="y"></span> Evgeny Shevchenko. All rights reserved.
      <span class="footer-divider">·</span>
      <a href="/cookie-policy.en.html">Cookie Policy</a>
+     <span class="footer-divider">·</span>
+     <a href="/privacy-policy.en.html">Privacy Policy</a>
     </div>
    </div>
   </footer>

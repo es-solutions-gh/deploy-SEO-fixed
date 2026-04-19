@@ -726,7 +726,7 @@ a {
 
 .section.legal h3 {
   margin-top: 1.5rem;
-  font-size: 1.15rem;
+  font-size: 1.3rem;
 }
 
 .section.legal p,
@@ -745,6 +745,18 @@ a {
   color: #0b1e59;
   text-decoration: underline;
 }
+
+/* Заголовки FAQ-карточек — жирный шрифт, переопределяет .card p и .section.legal p */
+.faq-q,
+.section.legal .card .faq-q {
+  font-size: 1.05rem !important;
+  font-weight: 700 !important;
+  color: #1a1f3a !important;
+  margin-bottom: 0.6rem !important;
+}
+.faq-a { font-size: 0.95rem; color: #555; margin-bottom: 0.4rem; line-height: 1.65; }
+.section.legal h1 + h3 { margin-top: 2rem; }
+.section.legal .cardgrid + h3 { margin-top: 2.5rem; }
 
 /* ===== CARD GRID ===== */
 .cardgrid {
@@ -915,9 +927,21 @@ a {
 }
 
 .pricing-card-best {
-  border-color: #f90;
-  border-width: 3px;
+  border: 3px solid #f90;
   background: linear-gradient(135deg, #fff9f0 0%, #ffffff 100%);
+}
+
+.pricing-card-new {
+  border: 3px solid #CC0000;
+  background: linear-gradient(135deg, #fff0f0 0%, #ffffff 100%);
+}
+
+.pricing-card-new .pricing-badge {
+  background: #CC0000;
+}
+
+.pricing-card-new:hover {
+  border-color: #CC0000;
 }
 
 /* Horizontal layout for wide pricing cards */
@@ -1373,21 +1397,75 @@ a {
 }
 
 .cookie-buttons button {
-  background: #f90;
-  color: white;
-  border: none;
   padding: 0.7rem 1.5rem;
   border-radius: 6px;
   font-weight: 600;
   cursor: pointer;
   font-size: 0.95rem;
-  transition: background 0.2s;
+  transition: background 0.2s, border-color 0.2s;
   white-space: nowrap;
   min-height: 48px;
+  min-width: 120px;
 }
 
-.cookie-buttons button:hover {
+.cookie-btn-accept,
+.cookie-buttons button:first-of-type {
+  background: #f90;
+  color: white;
+  border: 2px solid #f90;
+}
+
+.cookie-btn-accept:hover,
+.cookie-buttons button:first-of-type:hover {
   background: #e88a00;
+  border-color: #e88a00;
+}
+
+.cookie-btn-reject {
+  background: transparent;
+  color: white;
+  border: 2px solid rgba(255, 255, 255, 0.6);
+}
+
+.cookie-btn-reject:hover {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: rgba(255, 255, 255, 0.9);
+}
+
+.cookie-buttons button:not(.cookie-btn-accept):not(.cookie-btn-reject) {
+  background: #f90;
+  color: white;
+  border: 2px solid #f90;
+}
+
+.cookie-buttons button:not(.cookie-btn-accept):not(.cookie-btn-reject):hover {
+  background: #e88a00;
+  border-color: #e88a00;
+}
+
+/* ===== COOKIE TABLE (Cookie Policy) ===== */
+.cookie-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 1rem 0;
+  font-size: 0.9rem;
+}
+.cookie-table th,
+.cookie-table td {
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  padding: 0.75rem 1rem;
+  text-align: left;
+}
+.cookie-table th {
+  background: rgba(255, 255, 255, 0.08);
+  font-weight: 600;
+}
+.cookie-table tbody tr:nth-child(even) {
+  background: rgba(255, 255, 255, 0.04);
+}
+@media (max-width: 768px) {
+  .cookie-table { font-size: 0.8rem; }
+  .cookie-table th, .cookie-table td { padding: 0.5rem; }
 }
 
 /* ===== COOKIE MODAL ===== */
@@ -1573,6 +1651,13 @@ body.menu-open::before {
     display: none !important;
   }
 
+  /* Явно скрываем desktop CTA на мобильных (убирает дубликат) */
+  .header .wrap > .cta-link.desktop-only,
+  .header .wrap > .cta-link.desktop-only.header-cta {
+    display: none !important;
+    visibility: hidden !important;
+  }
+
   .mobile-only {
     display: block !important;
   }
@@ -1634,7 +1719,7 @@ body.menu-open::before {
     grid-column: 2;
     grid-row: 1;
     text-align: center;
-    font-size: 0.95rem;
+    font-size: 0.78rem;
     position: static;
     transform: none;
     padding-bottom: 0;
@@ -1643,14 +1728,19 @@ body.menu-open::before {
     display: block !important;
     justify-self: center;
     align-self: center;
+    overflow: visible;
+    white-space: nowrap;
+    flex-shrink: 0;
   }
 
   .header .wrap .lang-switch.mobile-top {
     grid-column: 3;
     grid-row: 1;
-    display: block !important;
+    display: flex !important;
     justify-self: end;
     align-self: center;
+    flex-shrink: 0;
+    min-width: fit-content;
   }
 
   .header .wrap .lang-switch.mobile-top button {
@@ -1664,17 +1754,17 @@ body.menu-open::before {
     height: 15px;
   }
   
-  /* Force CTA to next line - exactly like promo but visible */
+  /* Force CTA to next line - как на главной, с отступами */
   .header .wrap .mobile-cta {
     grid-column: 1 / -1;
     grid-row: 2;
     width: 100%;
     margin-top: 1.1rem;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
     padding: 0.6rem 1rem !important;
     font-size: 0.9rem !important;
     max-width: 100% !important;
-    margin-left: 0 !important;
-    margin-right: 0 !important;
     padding-left: max(0.8rem, var(--safe-area-inset-left)) !important;
     padding-right: max(0.8rem, var(--safe-area-inset-right)) !important;
     box-sizing: border-box !important;
@@ -2299,7 +2389,7 @@ body.menu-open::before {
   }
 
   .header .wrap .logo.mobile-only {
-    font-size: 0.95rem;
+    font-size: 0.78rem;
     padding-bottom: 0;
   }
   
@@ -2605,6 +2695,607 @@ body.menu-open::before {
 
 /* ===== PROMO PAGE STYLES ===== */
 
+/* ===== PROMO-MILITARY-CRISIS PAGE: hero-section, white-section, etc. ===== */
+.hero-section {
+  background: linear-gradient(135deg, #0b1e59 0%, #5b2e91 100%);
+  width: 100%;
+  max-width: 100%;
+  padding: 4rem 0 0;
+  overflow-x: hidden;
+  box-sizing: border-box;
+}
+
+.hero-section .hero-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.hero-section .hero-label {
+  display: inline-block;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.9);
+  margin-bottom: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.hero-section .hero-title {
+  font-size: 2.2rem;
+  font-weight: 700;
+  color: white;
+  margin-bottom: 0.75rem;
+  line-height: 1.2;
+}
+
+.hero-section .hero-title span {
+  color: #f90;
+}
+
+.hero-section .hero-subtitle {
+  font-size: 1.1rem;
+  color: rgba(255, 255, 255, 0.9);
+  margin-bottom: 0.5rem;
+}
+
+.hero-section .hero-lead {
+  font-size: 1rem;
+  color: rgba(255, 255, 255, 0.9);
+  margin-bottom: 0.5rem;
+}
+
+/* Hero img: full width, adaptive. !important to override .hero-img from main page */
+.hero-section img.hero-img {
+  display: block !important;
+  width: 100% !important;
+  max-width: 100% !important;
+  margin: 1rem 0 0 !important;
+  padding: 0 !important;
+  box-sizing: border-box !important;
+  height: auto !important;
+}
+
+.white-section {
+  background: #fff;
+  padding: 3rem 2rem;
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
+}
+
+.white-section .container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.white-section .section-inner {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.white-section .section-label {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #888;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: 0.5rem;
+}
+
+.white-section .section-title {
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+}
+
+.white-section .section-title.dark {
+  color: #1a1f3a;
+}
+
+.white-section .section-title.orange {
+  color: #f90;
+}
+
+.white-section .body-text {
+  color: #333;
+  font-size: 1rem;
+  line-height: 1.7;
+  margin-bottom: 1rem;
+}
+
+.quick-scan {
+  background: #f9f9f9;
+  border-radius: 12px;
+  padding: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.quick-scan .scan-heading {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #1a1f3a;
+  margin-bottom: 1rem;
+}
+
+.check-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.check-list li {
+  position: relative;
+  padding-left: 1.5rem;
+  margin-bottom: 0.6rem;
+  color: #333;
+  font-size: 1rem;
+  line-height: 1.6;
+}
+
+.check-list li::before {
+  content: "✓";
+  position: absolute;
+  left: 0;
+  color: #f90;
+  font-weight: 700;
+}
+
+.how-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.how-item {
+  text-align: center;
+  padding: 1rem;
+}
+
+.how-num {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #f90;
+  margin-bottom: 0.25rem;
+}
+
+.how-text {
+  font-size: 0.95rem;
+  color: #555;
+}
+
+.price-bar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.5rem;
+  padding: 1.5rem 0;
+  border-top: 1px solid #e0e0e0;
+}
+
+.price-tag {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #1a1f3a;
+}
+
+.price-note {
+  font-size: 0.9rem;
+  color: #666;
+  margin-top: 0.25rem;
+}
+
+.cta-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.white-section .btn-secondary {
+  background: transparent;
+  color: #1a1f3a;
+  border: 2px solid #1a1f3a;
+}
+
+.white-section .btn-secondary:hover {
+  background: rgba(26, 31, 58, 0.08);
+  border-color: #f90;
+  color: #1a1f3a;
+}
+
+.proof-img-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.5rem;
+  margin: 2rem 0;
+}
+
+.proof-img-grid .proof-img {
+  width: 100%;
+  height: auto;
+  border-radius: 12px;
+  object-fit: cover;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+}
+
+.proof-carousel {
+  display: none;
+}
+
+.proof-carousel-dots {
+  display: none;
+}
+
+.priority {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin: 1.5rem 0;
+}
+
+.priority-item {
+  flex: 1;
+  min-width: 180px;
+  background: #f9f9f9;
+  border-radius: 12px;
+  padding: 1rem 1.25rem;
+  border-left: 4px solid #f90;
+}
+
+.p-label {
+  font-size: 0.8rem;
+  color: #666;
+  margin-bottom: 0.25rem;
+}
+
+.p-title {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #1a1f3a;
+}
+
+.proof-list {
+  list-style: none;
+  padding: 0;
+  margin: 1rem 0;
+}
+
+.proof-list li {
+  position: relative;
+  padding-left: 1.5rem;
+  margin-bottom: 0.8rem;
+  color: #333;
+  font-size: 1rem;
+  line-height: 1.6;
+}
+
+.proof-list li::before {
+  content: "•";
+  position: absolute;
+  left: 0;
+  color: #f90;
+  font-weight: 700;
+}
+
+.metrics {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+  margin: 2rem 0;
+}
+
+.metric {
+  text-align: center;
+  padding: 1.5rem;
+  background: #f9f9f9;
+  border-radius: 12px;
+}
+
+.metric-value {
+  display: block;
+  font-size: 2rem;
+  font-weight: 700;
+  color: #f90;
+  margin-bottom: 0.25rem;
+}
+
+.metric-label {
+  font-size: 0.9rem;
+  color: #555;
+}
+
+.result-callout {
+  background: linear-gradient(135deg, #fff9f0 0%, #fff 100%);
+  border: 2px solid #f90;
+  border-radius: 12px;
+  padding: 1.5rem;
+  margin: 2rem 0;
+}
+
+.result-callout p {
+  margin: 0;
+  font-size: 1.1rem;
+  color: #1a1f3a;
+  line-height: 1.6;
+}
+
+.engagement-box {
+  background: #f9f9f9;
+  border-radius: 12px;
+  padding: 1.5rem;
+}
+
+.engagement-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.engagement-list li {
+  position: relative;
+  padding-left: 1.5rem;
+  margin-bottom: 0.6rem;
+  color: #333;
+  font-size: 1rem;
+  line-height: 1.6;
+}
+
+.engagement-list li::before {
+  content: "•";
+  position: absolute;
+  left: 0;
+  color: #f90;
+  font-weight: 700;
+}
+
+.cta-section {
+  background: linear-gradient(135deg, #0b1e59 0%, #5b2e91 100%);
+  padding: 4rem 2rem;
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
+}
+
+.cta-section .container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+  width: 100%;
+  box-sizing: border-box;
+  text-align: center;
+}
+
+.cta-headline {
+  font-size: 2rem;
+  font-weight: 700;
+  color: white;
+  margin-bottom: 0.75rem;
+  line-height: 1.3;
+}
+
+.cta-sub {
+  font-size: 1.1rem;
+  color: rgba(255, 255, 255, 0.9);
+  margin-bottom: 1.5rem;
+}
+
+.cta-section .cta-group {
+  justify-content: center;
+}
+
+@media (max-width: 1100px) {
+  .hero-section {
+    padding: 2rem 0 0;
+  }
+
+  .hero-section .hero-inner {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+
+  .hero-section .hero-title {
+    font-size: 1.75rem;
+  }
+
+  .hero-section .hero-subtitle,
+  .hero-section .hero-lead {
+    font-size: 1rem;
+  }
+
+  .white-section {
+    padding: 2rem 1rem;
+  }
+
+  .white-section .container {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+
+  .white-section .section-title {
+    font-size: 1.5rem;
+  }
+
+  .how-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .proof-img-grid {
+    display: none;
+  }
+
+  .proof-carousel {
+    display: flex;
+    margin: 1.5rem 0;
+    overflow-x: auto;
+    overflow-y: hidden;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+    gap: 0;
+  }
+
+  .proof-carousel::-webkit-scrollbar {
+    display: none;
+  }
+
+  .proof-carousel img {
+    flex: 0 0 100%;
+    width: 100%;
+    min-width: 100%;
+    height: auto;
+    object-fit: cover;
+    scroll-snap-align: start;
+    scroll-snap-stop: always;
+    display: block;
+  }
+
+  .proof-carousel-dots {
+    display: flex;
+    justify-content: center;
+    gap: 0.5rem;
+    margin-top: 0.75rem;
+  }
+
+  .proof-carousel-dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    border: none;
+    background: #ccc;
+    cursor: pointer;
+    padding: 0;
+    transition: background 0.2s;
+  }
+
+  .proof-carousel-dot.active {
+    background: #f90;
+  }
+
+  .priority {
+    flex-direction: column;
+  }
+
+  .priority-item {
+    min-width: 100%;
+  }
+
+  .metrics {
+    grid-template-columns: 1fr;
+  }
+
+  .price-bar {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .cta-group {
+    flex-direction: column;
+  }
+
+  .cta-section {
+    padding: 3rem 1rem;
+  }
+
+  .cta-headline {
+    font-size: 1.5rem;
+  }
+}
+
+/* Мобильный header для promo-military-page: flex layout + один CTA */
+@media (max-width: 1100px) {
+  body.promo-military-page {
+    padding-top: 130px !important;
+  }
+  .promo-military-page .hero-section {
+    padding-top: 1.6rem !important;
+  }
+  .promo-military-page .header .wrap .cta-link.desktop-only {
+    display: none !important;
+  }
+  .promo-military-page .header .wrap {
+    display: flex !important;
+    flex-wrap: wrap !important;
+    flex-direction: row !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    gap: 0.5rem !important;
+    padding: 0.5rem 0.8rem !important;
+  }
+  .promo-military-page .header .wrap .mobile-header-row {
+    order: 1;
+    flex: 0 0 auto;
+  }
+  .promo-military-page .header .wrap .logo.mobile-only {
+    order: 2;
+    flex: 1 1 auto;
+    min-width: 0;
+    font-size: 0.85rem !important;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+  .promo-military-page .header .wrap .lang-switch.mobile-top {
+    order: 3;
+    flex-shrink: 0;
+  }
+  .promo-military-page .header .wrap .mobile-cta {
+    order: 4;
+    width: 100% !important;
+    margin-top: 0.6rem !important;
+  }
+  .promo-military-page .header-cta .cta-text {
+    font-size: 1.1rem !important;
+    white-space: normal !important;
+    overflow: visible !important;
+    text-overflow: clip !important;
+    line-height: 1.25 !important;
+  }
+}
+
+@media (max-width: 375px) {
+  .promo-military-page .header .wrap .logo.mobile-only {
+    font-size: 0.78rem !important;
+  }
+}
+
+/* Футер promo-military на мобильных — стабильная раскладка */
+@media (max-width: 1100px) {
+  .promo-military-page .footer .footer-inner {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 1.5rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+  .promo-military-page .footer .footer-text {
+    order: 1;
+    text-align: center;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    max-width: 100%;
+  }
+  .promo-military-page .footer .footer-social {
+    order: 2;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1rem;
+  }
+  .promo-military-page .footer .footer-social-label {
+    max-width: 140px;
+    word-break: break-word;
+    text-align: center;
+  }
+}
+
 /* Мобильный header в 1 строку для promo страницы */
 @media (max-width: 1100px) {
   .promo-page .header .wrap {
@@ -2656,6 +3347,31 @@ body.menu-open::before {
   .promo-page .header .mobile-cta {
     display: none !important;
   }
+}
+
+
+/* Back link перед футером (оранжевый, как в cookie policy) — переопределяет .section.legal a */
+.faq-back-link {
+  display: block;
+  text-align: center;
+  margin: 2.5rem 0 1.5rem;
+  padding: 0 1rem;
+}
+.faq-back-link a,
+.section.legal .faq-back-link a {
+  display: inline-block !important;
+  background-color: #f90 !important;
+  color: white !important;
+  padding: 0.75rem 1.5rem !important;
+  border-radius: 6px !important;
+  font-weight: 600 !important;
+  font-size: 0.95rem !important;
+  text-decoration: none !important;
+  transition: background-color 0.2s ease;
+}
+.faq-back-link a:hover,
+.section.legal .faq-back-link a:hover {
+  background-color: #e88a00 !important;
 }
 
 /* Фиксированная зона под header */

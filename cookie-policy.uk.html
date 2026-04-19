@@ -13,6 +13,24 @@
     'wait_for_update': 500,
   });
 </script>
+<script>
+  (function(){
+    try {
+      var c = localStorage.getItem('cookie-consent');
+      if (c) {
+        var p = JSON.parse(c);
+        if (p && typeof p.analytics === 'boolean' && typeof p.marketing === 'boolean') {
+          gtag('consent', 'update', {
+            'ad_storage': p.marketing ? 'granted' : 'denied',
+            'ad_user_data': p.marketing ? 'granted' : 'denied',
+            'ad_personalization': p.marketing ? 'granted' : 'denied',
+            'analytics_storage': p.analytics ? 'granted' : 'denied'
+          });
+        }
+      }
+    } catch(e){}
+  })();
+</script>
 <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=AW-17869913918"></script>
 <script>
@@ -50,20 +68,15 @@
   <link href="/assets/favicon.svg" rel="icon" type="image/svg+xml"/>
   <link href="/assets/apple-touch-icon.png" rel="apple-touch-icon" sizes="180x180"/>
   <link href="/styles.css" rel="stylesheet"/>
-  <script defer="" src="/script.js?v=20260224">
+  <script defer src="/cookie-consent.js?v=20260315"></script>
+  <script defer="" src="/script.js?v=20260315">
   </script>
  </head>
  <body>
   <header class="header">
    <div class="wrap">
     <!-- Logo (Desktop) -->
-    <a class="logo desktop-only" href="/uk/">
-     shevchenko
-     <span class="dot">
-      .
-     </span>
-     solutions
-    </a>
+    <a class="logo desktop-only" href="/uk/">shevchenko<span class="dot">.</span>solutions</a>
     <!-- Navigation -->
     <nav class="nav">
      <a class="cta-link desktop-only" href="/uk/">
@@ -103,13 +116,7 @@
      </button>
     </div>
     <!-- Logo (Mobile) -->
-    <a class="logo mobile-only" href="/uk/">
-     shevchenko
-     <span class="dot">
-      .
-     </span>
-     solutions
-    </a>
+    <a class="logo mobile-only" href="/uk/">shevchenko<span class="dot">.</span>solutions</a>
     <!-- Language Switcher (Mobile) -->
     <div class="lang-switch mobile-top">
      <button id="current-lang" type="button">
@@ -150,7 +157,7 @@
       <strong>
        shevchenko.solutions
       </strong>
-      («Сайт»). Використовуючи цей Сайт, ви погоджуєтесь з використанням нами cookies відповідно до цієї політики.
+      («Сайт»). При першому відвідуванні сайту з’являється банер із запитом згоди на використання cookie. Ви можете прийняти всі cookie, відхилити необов’язкові або налаштувати вподобання. Ваш вибір зберігається і може бути змінено в будь-який час.
      </p>
      <h2>
       2. Що таке файли cookie?
@@ -180,7 +187,44 @@
       Маркетингові cookies використовуються для відстеження користувачів на різних сайтах. Вони дозволяють показувати персоналізовану рекламу та вимірювати ефективність маркетингових кампаній. Ці cookies встановлюються лише за вашою згоди.
      </p>
      <h2>
-      4. Як довго зберігаються cookies?
+      4. Таблиця cookie
+     </h2>
+     <table class="cookie-table">
+      <thead>
+       <tr>
+        <th>Категорія</th>
+        <th>Провайдер</th>
+        <th>Призначення</th>
+        <th>Термін зберігання</th>
+        <th>Тип</th>
+       </tr>
+      </thead>
+      <tbody>
+       <tr>
+        <td>Необхідні</td>
+        <td>shevchenko.solutions</td>
+        <td>Session, localStorage для збереження згоди</td>
+        <td>Сесія / 1 рік</td>
+        <td>Власні</td>
+       </tr>
+       <tr>
+        <td>Аналітика</td>
+        <td>Google Analytics 4</td>
+        <td>_ga, _ga_* — аналітика, відвідані сторінки, тривалість сесії</td>
+        <td>14 місяців</td>
+        <td>Сторонні</td>
+       </tr>
+       <tr>
+        <td>Маркетинг</td>
+        <td>Google Ads</td>
+        <td>gcl_*, відстеження конверсій, Enhanced Conversions</td>
+        <td>Згідно Google</td>
+        <td>Сторонні</td>
+       </tr>
+      </tbody>
+     </table>
+     <h2>
+      5. Як довго зберігаються cookies?
      </h2>
      <ul>
       <li>
@@ -197,7 +241,7 @@
       </li>
      </ul>
      <h2>
-      5. Керування вашими налаштуваннями cookies
+      6. Керування вашими налаштуваннями cookies
      </h2>
      <p>
       Ви можете змінити свої налаштування cookies у будь-який момент через панель Налаштування cookies, доступну внизу кожної сторінки.
@@ -206,19 +250,19 @@
       Ви також можете налаштувати свій браузер на блокування або видалення cookies. Але зверніть увагу, що деякі частини Сайту можуть працювати некоректно, якщо вимкнути певні cookies.
      </p>
      <h2>
-      6. Сторонні cookies
+      7. Сторонні cookies
      </h2>
      <p>
       Ми можемо дозволити обраним стороннім сервісам розміщувати cookies на вашому пристрої для реклами, аналітики чи інших цілей. Вони регулюються власною політикою конфіденційності та cookies таких третіх сторін.
      </p>
      <h2>
-      7. Зміни до цієї політики
+      8. Зміни до цієї політики
      </h2>
      <p>
       Ми можемо періодично оновлювати цю Політику cookies, щоб відобразити зміни у законодавстві або технічних вимогах. Рекомендуємо регулярно перевіряти цю сторінку.
      </p>
      <h2>
-      8. Зв'язатися з нами
+      9. Зв'язатися з нами
      </h2>
      <p>
       Якщо у вас виникли запитання щодо цієї Політики cookies або нашого використання cookies, будь ласка, зв'яжіться з нами:
@@ -261,9 +305,11 @@
      <span class="footer-divider">
       ·
      </span>
-     <a href="/uk/">
-      Головна
-     </a>
+     <a href="/uk/">Головна</a>
+     <span class="footer-divider">·</span>
+     <a href="/cookie-policy.uk.html">Політика Cookie</a>
+     <span class="footer-divider">·</span>
+     <a href="/privacy-policy.uk.html">Політика конфіденційності</a>
     </div>
    </div>
   </footer>

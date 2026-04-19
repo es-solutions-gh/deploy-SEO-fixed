@@ -13,6 +13,24 @@
     'wait_for_update': 500,
   });
 </script>
+<script>
+  (function(){
+    try {
+      var c = localStorage.getItem('cookie-consent');
+      if (c) {
+        var p = JSON.parse(c);
+        if (p && typeof p.analytics === 'boolean' && typeof p.marketing === 'boolean') {
+          gtag('consent', 'update', {
+            'ad_storage': p.marketing ? 'granted' : 'denied',
+            'ad_user_data': p.marketing ? 'granted' : 'denied',
+            'ad_personalization': p.marketing ? 'granted' : 'denied',
+            'analytics_storage': p.analytics ? 'granted' : 'denied'
+          });
+        }
+      }
+    } catch(e){}
+  })();
+</script>
 <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=AW-17869913918"></script>
 <script>
@@ -50,20 +68,15 @@
   <link href="/assets/favicon.svg" rel="icon" type="image/svg+xml"/>
   <link href="/assets/apple-touch-icon.png" rel="apple-touch-icon" sizes="180x180"/>
   <link href="/styles.css" rel="stylesheet"/>
-  <script defer="" src="/script.js?v=20260224">
+  <script defer src="/cookie-consent.js?v=20260315"></script>
+  <script defer="" src="/script.js?v=20260315">
   </script>
  </head>
  <body>
   <header class="header">
    <div class="wrap">
     <!-- Logo (Desktop) -->
-    <a class="logo desktop-only" href="/index.html">
-     shevchenko
-     <span class="dot">
-      .
-     </span>
-     solutions
-    </a>
+    <a class="logo desktop-only" href="/index.html">shevchenko<span class="dot">.</span>solutions</a>
     <!-- Navigation -->
     <nav class="nav">
      <a class="cta-link desktop-only" href="/index.html">
@@ -103,13 +116,7 @@
      </button>
     </div>
     <!-- Logo (Mobile) -->
-    <a class="logo mobile-only" href="/index.html">
-     shevchenko
-     <span class="dot">
-      .
-     </span>
-     solutions
-    </a>
+    <a class="logo mobile-only" href="/index.html">shevchenko<span class="dot">.</span>solutions</a>
     <!-- Language Switcher (Mobile) -->
     <div class="lang-switch mobile-top">
      <button id="current-lang" type="button">
@@ -150,8 +157,7 @@
       <strong>
        shevchenko.solutions
       </strong>
-      (the "Website"). By using this Website, you consent to our use of cookies as
-          described in this policy.
+      (the "Website"). When you first visit our website, a cookie consent banner will appear. You can accept all cookies, reject non-essential cookies, or customize your preferences. Your choice is saved and can be changed at any time.
      </p>
      <h2>
       2. What Are Cookies?
@@ -189,7 +195,44 @@
           the effectiveness of marketing campaigns. These cookies are only set with your consent.
      </p>
      <h2>
-      4. How Long Are Cookies Stored?
+      4. Cookie Table
+     </h2>
+     <table class="cookie-table">
+      <thead>
+       <tr>
+        <th>Category</th>
+        <th>Provider</th>
+        <th>Purpose</th>
+        <th>Retention</th>
+        <th>Type</th>
+       </tr>
+      </thead>
+      <tbody>
+       <tr>
+        <td>Essential</td>
+        <td>shevchenko.solutions</td>
+        <td>Session management, localStorage consent preference</td>
+        <td>Session / 1 year</td>
+        <td>First-party</td>
+       </tr>
+       <tr>
+        <td>Analytics</td>
+        <td>Google Analytics 4</td>
+        <td>_ga, _ga_* — usage analytics, pages visited, session duration</td>
+        <td>14 months</td>
+        <td>Third-party</td>
+       </tr>
+       <tr>
+        <td>Marketing</td>
+        <td>Google Ads</td>
+        <td>gcl_*, conversion tracking, Enhanced Conversions</td>
+        <td>Per Google cookie lifetimes</td>
+        <td>Third-party</td>
+       </tr>
+      </tbody>
+     </table>
+     <h2>
+      5. How Long Are Cookies Stored?
      </h2>
      <ul>
       <li>
@@ -207,7 +250,7 @@
       </li>
      </ul>
      <h2>
-      5. Managing Your Cookie Preferences
+      6. Managing Your Cookie Preferences
      </h2>
      <p>
       You can manage your cookie settings at any time through our
@@ -222,21 +265,21 @@
           may not function properly if you disable certain cookies.
      </p>
      <h2>
-      6. Third-Party Cookies
+      7. Third-Party Cookies
      </h2>
      <p>
       We may allow selected third parties to place cookies on your device for advertising, analytics, or other services.
           These are subject to the third party's own privacy and cookie policies.
      </p>
      <h2>
-      7. Changes to This Policy
+      8. Changes to This Policy
      </h2>
      <p>
       We may update this Cookie Policy from time to time to reflect changes in legal or technical requirements. We
           recommend checking this page regularly for updates.
      </p>
      <h2>
-      8. Contact Us
+      9. Contact Us
      </h2>
      <p>
       If you have any questions about this Cookie Policy or our use of cookies, please contact us at:
@@ -279,9 +322,11 @@
      <span class="footer-divider">
       ·
      </span>
-     <a href="/index.html">
-      Home
-     </a>
+     <a href="/index.html">Home</a>
+     <span class="footer-divider">·</span>
+     <a href="/cookie-policy.en.html">Cookie Policy</a>
+     <span class="footer-divider">·</span>
+     <a href="/privacy-policy.en.html">Privacy Policy</a>
     </div>
    </div>
   </footer>
