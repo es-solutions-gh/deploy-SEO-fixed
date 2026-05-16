@@ -93,41 +93,47 @@ document.addEventListener("DOMContentLoaded", () => {
     menu.querySelectorAll("li").forEach((li) => {
       li.addEventListener("click", () => {
         const selectedLang = li.getAttribute("data-lang");
-        if (selectedLang && langData[selectedLang]) {
-          // Save current scroll position
-          sessionStorage.setItem('langSwitchScroll', window.scrollY.toString());
+        if (!selectedLang || !langData[selectedLang]) return;
 
-          // Extract current page filename
-          const pathParts = currentPath.split('/');
-          const currentPage = pathParts[pathParts.length - 1] || 'index.html';
+        // Save current scroll position
+        sessionStorage.setItem('langSwitchScroll', window.scrollY.toString());
 
-          // Special handling for cookie policy pages
-          if (currentPage.startsWith('cookie-policy')) {
-            window.location.href = `/cookie-policy.${selectedLang}.html`;
-            return;
-          }
-          // Special handling for privacy policy pages
-          if (currentPage.startsWith('privacy-policy')) {
-            window.location.href = `/privacy-policy.${selectedLang}.html`;
-            return;
-          }
+        // Extract last path segment and normalise (strip .html, handle clean URLs)
+        const pathParts = currentPath.split('/');
+        let lastSegment = pathParts[pathParts.length - 1] || '';
+        if (lastSegment === '') lastSegment = 'index.html';
+        const pageBase = lastSegment.replace(/\.html$/i, '');
 
-          // Thank-you page: always go to language home
-          if (currentPage === 'thank_you.html') {
-            window.location.href = langData[selectedLang].path;
-            return;
-          }
-
-          // Regular page handling
-          let newPath;
-          if (selectedLang === 'en') {
-            newPath = currentPage === 'index.html' ? '/' : `/en/${currentPage}`;
-          } else {
-            newPath = `${langData[selectedLang].path}${currentPage}`;
-          }
-
-          window.location.href = newPath;
+        // Root-level policy pages — always have a localised twin
+        if (pageBase.startsWith('cookie-policy')) {
+          window.location.href = `/cookie-policy.${selectedLang}.html`;
+          return;
         }
+        if (pageBase.startsWith('privacy-policy')) {
+          window.location.href = `/privacy-policy.${selectedLang}.html`;
+          return;
+        }
+
+        // Pages that exist in all three language folders
+        const LOCALISED_PAGES = new Set([
+          'index', 'case1', 'case2', 'case3', 'case4',
+          'faq', 'promo-crisis-readiness'
+        ]);
+
+        if (LOCALISED_PAGES.has(pageBase)) {
+          if (selectedLang === 'en' && pageBase === 'index') {
+            window.location.href = '/';
+          } else if (pageBase === 'index') {
+            window.location.href = langData[selectedLang].path;
+          } else {
+            window.location.href = `${langData[selectedLang].path}${pageBase}.html`;
+          }
+          return;
+        }
+
+        // Single-language or unknown page (e.g. thank_you, deleted pages):
+        // fall back to language home to avoid 404.
+        window.location.href = langData[selectedLang].path;
       });
     });
   });

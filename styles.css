@@ -1,3 +1,13 @@
+/* ===== SELF-HOSTED INTER (GDPR; no third-party calls) ===== */
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 100 900;
+  font-display: swap;
+  src: url('/fonts/inter/InterVariable.woff2') format('woff2-variations'),
+       url('/fonts/inter/InterVariable.woff2') format('woff2');
+}
+
 /* ===== RESET / GLOBAL ===== */
 * {
   margin: 0;
@@ -66,6 +76,7 @@ a {
   left: 0;
   right: 0;
   z-index: 1000;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.45);
 }
 
 .header .wrap {
@@ -446,7 +457,7 @@ a {
 /* ===== HERO SECTION ===== */
 .hero {
   padding: 5rem 0 2rem 0;
-  background: linear-gradient(135deg, #0b1e59 0%, #5b2e91 100%);
+  background: #14276E;
   width: 100%;
   max-width: 100%;
   box-sizing: border-box;
@@ -471,9 +482,17 @@ a {
 }
 
 .hero h1 {
-  font-size: 2.2rem;
-  margin-bottom: 0.75rem;
+  font-size: clamp(26px, 7.5vw, 52px);
+  line-height: 1.15;
+  font-weight: 800;
+  letter-spacing: -0.5px;
+  margin-bottom: clamp(32px, 6vw, 64px);
+  white-space: nowrap;
   color: white;
+}
+
+.hero h1 .tagline-accent {
+  color: #F08A3E;
 }
 
 .hero p {
@@ -922,68 +941,9 @@ a {
   border-color: #f90;
 }
 
-.pricing-card-wide {
-  grid-column: 1 / -1;
-}
-
 .pricing-card-best {
   border: 3px solid #f90;
   background: linear-gradient(135deg, #fff9f0 0%, #ffffff 100%);
-}
-
-.pricing-card-new {
-  border: 3px solid #CC0000;
-  background: linear-gradient(135deg, #fff0f0 0%, #ffffff 100%);
-}
-
-.pricing-card-new .pricing-badge {
-  background: #CC0000;
-}
-
-.pricing-card-new:hover {
-  border-color: #CC0000;
-}
-
-/* Horizontal layout for wide pricing cards */
-.pricing-card-wide.pricing-card-horizontal {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 3rem;
-  padding: 1.5rem 2rem;
-  margin-bottom: 1.5rem;
-}
-
-.pricing-card-horizontal .pricing-title {
-  flex: 0 0 auto;
-  width: 280px;
-}
-
-.pricing-card-horizontal .pricing-description {
-  flex: 1;
-  margin-bottom: 0;
-  min-height: auto;
-  font-size: 0.9rem;
-  padding: 0 2rem;
-}
-
-.pricing-card-horizontal .pricing-price {
-  flex: 0 0 auto;
-  text-align: right;
-  min-width: 140px;
-}
-
-.pricing-badge {
-  position: absolute;
-  top: -12px;
-  left: 20px;
-  background: #f90;
-  color: white;
-  padding: 0.4rem 1rem;
-  border-radius: 20px;
-  font-weight: 700;
-  font-size: 0.75rem;
-  letter-spacing: 0.5px;
 }
 
 .pricing-card h3 {
@@ -991,11 +951,6 @@ a {
   color: #1a1f3a;
   margin-bottom: 1rem;
   text-align: center;
-}
-
-.pricing-card-horizontal h3 {
-  margin-bottom: 0;
-  text-align: left;
 }
 
 .pricing-hybrid {
@@ -1011,10 +966,6 @@ a {
   margin-bottom: 1.5rem;
   min-height: 60px;
   text-align: center;
-}
-
-.pricing-card-horizontal .pricing-description {
-  text-align: left;
 }
 
 .pricing-amount {
@@ -1033,19 +984,11 @@ a {
   text-align: center;
 }
 
-.pricing-card-horizontal .pricing-amount {
-  text-align: right;
-}
-
 .pricing-period {
   color: #888;
   font-size: 0.9rem;
   margin-bottom: 0;
   text-align: center;
-}
-
-.pricing-card-horizontal .pricing-period {
-  text-align: right;
 }
 
 .pricing-note {
@@ -1958,7 +1901,6 @@ body.menu-open::before {
     overflow-x: visible !important;
   }
   
-  .hero h1,
   .hero p,
   .hero .list,
   .hero .list li,
@@ -2042,12 +1984,6 @@ body.menu-open::before {
   .hero .grid {
     grid-template-columns: 1fr;
     gap: 1.5rem;
-  }
-
-  .hero h1 {
-    font-size: 1.75rem;
-    line-height: 1.3;
-    margin-bottom: 1rem;
   }
 
   .hero p {
@@ -2244,42 +2180,6 @@ body.menu-open::before {
     min-height: auto;
   }
 
-  .pricing-card-horizontal {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 1.5rem;
-    padding: 1.5rem 1.25rem;
-  }
-
-  .pricing-card-horizontal .pricing-title {
-    width: 100%;
-  }
-
-  .pricing-card-horizontal h3 {
-    font-size: 1.3rem;
-    margin-bottom: 0.5rem;
-    text-align: left;
-  }
-
-  .pricing-card-horizontal .pricing-description {
-    margin-bottom: 0;
-    padding: 0;
-    font-size: 0.95rem;
-    text-align: left;
-  }
-
-  .pricing-card-horizontal .pricing-price {
-    text-align: left;
-    width: 100%;
-    min-width: auto;
-  }
-
-  .pricing-card-horizontal .pricing-amount,
-  .pricing-card-horizontal .pricing-period,
-  .pricing-card-horizontal .pricing-individual {
-    text-align: left;
-  }
-
   #cookie-banner {
     padding: 1rem 1rem;
     padding-bottom: max(1rem, var(--safe-area-inset-bottom));
@@ -2432,10 +2332,6 @@ body.menu-open::before {
     right: unset !important;
   }
 
-  .hero h1 {
-    font-size: 1.5rem;
-  }
-
   .hero p {
     font-size: 0.95rem;
   }
@@ -2472,10 +2368,6 @@ body.menu-open::before {
 @media (min-width: 769px) and (max-width: 1100px) {
   .hero .grid {
     gap: 2rem;
-  }
-
-  .hero h1 {
-    font-size: 2rem;
   }
 
   .cardgrid {
@@ -4074,4 +3966,465 @@ body header .cta-link.desktop-only.header-cta {
   padding-left: 0.63rem !important;
   padding-top: 0.6rem !important;
   padding-bottom: 0.6rem !important;
+}
+
+/* ===== DESIGN CLEANUP PASS #1 ===== */
+
+/* Case numbering + category tag */
+.case-number {
+  font-size: 48px;
+  font-weight: 600;
+  line-height: 1;
+  color: #0b1e59;
+  margin-bottom: 4px;
+}
+
+.case-category {
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #f90;
+  margin-bottom: 12px;
+}
+
+@media (max-width: 1100px) {
+  .case-number {
+    font-size: 40px;
+  }
+}
+
+/* Service icons (Lucide) */
+.service-icon {
+  color: #f90;
+  width: 28px;
+  height: 28px;
+  margin-bottom: 0.75rem;
+}
+
+.service-icon svg {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+@media (max-width: 1100px) {
+  .service-icon,
+  .service-icon svg {
+    width: 24px;
+    height: 24px;
+  }
+}
+
+/* Testimonial typographic quote mark */
+.testimonial blockquote {
+  position: relative;
+  z-index: 1;
+}
+
+.testimonial blockquote::before {
+  content: "\201C";
+  position: absolute;
+  top: -10px;
+  left: 16px;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 72px;
+  line-height: 1;
+  color: #0b1e59;
+  opacity: 0.12;
+  z-index: 0;
+  font-style: normal;
+  pointer-events: none;
+}
+
+@media (max-width: 1100px) {
+  .testimonial blockquote::before {
+    font-size: 56px;
+    top: -6px;
+    left: 10px;
+  }
+}
+
+/* ===== DESIGN CLEANUP PASS #2: PRICING REDESIGN ===== */
+
+/* Manifesto paragraph - sets the editorial tone */
+#pricing .manifesto {
+  font-size: 1.15rem;
+  line-height: 1.6;
+  color: #1a1f3a;
+  max-width: 720px;
+  margin: 0 0 3rem 0;
+  font-weight: 400;
+}
+
+@media (max-width: 1100px) {
+  #pricing .manifesto {
+    font-size: 1rem;
+    margin-bottom: 2rem;
+  }
+}
+
+/* Engagement row - editorial layout */
+.engagement-row {
+  display: grid;
+  grid-template-columns: 200px 1fr 180px;
+  gap: 2rem;
+  align-items: start;
+  padding: 1.5rem 0;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.engagement-row:first-of-type {
+  border-top: 1px solid #e0e0e0;
+}
+
+/* Hero retainer row - more vertical space, slightly bigger */
+.engagement-row-hero {
+  padding: 2rem 0;
+  grid-template-columns: 200px 1fr 200px;
+  grid-template-areas:
+    "tier subtitle price"
+    "tier description price";
+  gap: 1rem 2rem;
+}
+
+.engagement-row-hero .engagement-tier {
+  grid-area: tier;
+}
+
+.engagement-row-hero .engagement-subtitle {
+  grid-area: subtitle;
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #1a1f3a;
+  margin-bottom: 0.25rem;
+}
+
+.engagement-row-hero .engagement-description {
+  grid-area: description;
+}
+
+.engagement-row-hero .engagement-price {
+  grid-area: price;
+}
+
+/* Tier label and marker */
+.engagement-tier {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.tier-label {
+  font-size: 0.95rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  color: #0b1e59;
+  text-transform: uppercase;
+}
+
+.engagement-row-hero .tier-label {
+  font-size: 1.1rem;
+}
+
+.tier-marker {
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  color: #f90;
+  text-transform: uppercase;
+}
+
+/* Description text */
+.engagement-description {
+  font-size: 1rem;
+  line-height: 1.6;
+  color: #555;
+}
+
+/* Price */
+.engagement-price {
+  text-align: right;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 0.2rem;
+}
+
+.price-amount {
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: #1a1f3a;
+  line-height: 1;
+}
+
+.engagement-row-hero .price-amount {
+  font-size: 2rem;
+}
+
+.price-amount-custom {
+  font-size: 1.4rem;
+  font-weight: 500;
+  font-style: italic;
+}
+
+.price-unit {
+  font-size: 0.9rem;
+  color: #888;
+}
+
+/* Subgroup heading (Single-issue / Hands-on / Alternative / How I work) */
+#pricing .engagements-subgroup {
+  font-size: 0.95rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #888;
+  margin: 3rem 0 1rem 0;
+  text-align: left;
+}
+
+/* Alternative arrangements block */
+.alternative-arrangements {
+  margin-top: 3rem;
+  padding: 2rem;
+  background: #f9f9f9;
+  border-left: 3px solid #f90;
+  border-radius: 0 8px 8px 0;
+}
+
+.alternative-arrangements .engagements-subgroup {
+  margin-top: 0;
+  margin-bottom: 1rem;
+  color: #1a1f3a;
+}
+
+.alternative-arrangements p {
+  font-size: 1rem;
+  line-height: 1.65;
+  color: #333;
+  margin: 0;
+}
+
+/* How I work block */
+.how-i-work {
+  margin-top: 3rem;
+  padding-top: 2rem;
+  border-top: 1px solid #e0e0e0;
+}
+
+.how-i-work .engagements-subgroup {
+  margin-top: 0;
+  color: #1a1f3a;
+}
+
+.principles-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.principles-list li {
+  position: relative;
+  padding-left: 1.5rem;
+  margin-bottom: 0.8rem;
+  color: #333;
+  font-size: 1rem;
+  line-height: 1.65;
+}
+
+.principles-list li::before {
+  content: "·";
+  position: absolute;
+  left: 0;
+  top: -0.2em;
+  color: #f90;
+  font-size: 1.8rem;
+  line-height: 1;
+  font-weight: 700;
+}
+
+/* Mobile adaptations for pricing redesign */
+@media (max-width: 1100px) {
+  .engagement-row {
+    grid-template-columns: 1fr;
+    gap: 0.75rem;
+    padding: 1.5rem 0;
+  }
+
+  .engagement-row-hero {
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      "tier"
+      "subtitle"
+      "description"
+      "price";
+    gap: 0.75rem;
+    padding: 2rem 0;
+  }
+
+  .engagement-tier {
+    flex-direction: row;
+    align-items: baseline;
+    gap: 1rem;
+    flex-wrap: wrap;
+  }
+
+  .engagement-price {
+    text-align: left;
+    align-items: flex-start;
+    flex-direction: row;
+    gap: 0.5rem;
+    align-items: baseline;
+  }
+
+  .price-amount {
+    font-size: 1.5rem;
+  }
+
+  .engagement-row-hero .price-amount {
+    font-size: 1.75rem;
+  }
+
+  #pricing .engagements-subgroup {
+    margin: 2rem 0 1rem 0;
+  }
+
+  .alternative-arrangements {
+    margin-top: 2rem;
+    padding: 1.5rem;
+  }
+
+  .how-i-work {
+    margin-top: 2rem;
+  }
+}
+
+/* ===== ENGAGEMENT GROUPS: Retainer hero + Consultations / Special Protocols / Presence Formats ===== */
+
+:root {
+  --accent-retainer: #f90;
+  --accent-consult: #64748B;
+  --accent-special: #8B6F47;
+  --accent-presence: #A8A29E;
+}
+
+/* Shared card treatment: RETAINER hero + every grouped card render as
+   full-width rows with a left accent bar, soft shadow, rounded corners, and
+   a subtle hover lift. Per-group differentiation is by left-border color
+   and (for the CRISIS-READY card) a warm-cream background. */
+.engagement-row-hero,
+.engagement-row-consult,
+.engagement-row-presence,
+.engagement-row-special {
+  background: #fff;
+  border-top: none;
+  border-bottom: none;
+  border-radius: 8px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.06);
+  padding: 1.5rem;
+  margin: 0.75rem 0;
+  border-left: 4px solid var(--accent-consult);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.engagement-row-hero {
+  border-left-color: var(--accent-retainer);
+  padding: 1.75rem 1.5rem;
+  margin: 1.25rem 0 2rem 0;
+}
+
+.engagement-row-presence {
+  border-left-color: var(--accent-presence);
+}
+
+.engagement-row-special {
+  background: #FAF7F1;
+  border-left-width: 6px;
+  border-left-color: var(--accent-special);
+  margin: 1rem 0;
+}
+
+.engagement-row-special .engagement-description {
+  color: #1a1f3a;
+}
+
+/* Suppress the .engagement-row :first-of-type top-border for any styled card */
+.engagement-row-hero:first-of-type,
+.engagement-row-consult:first-of-type,
+.engagement-row-presence:first-of-type,
+.engagement-row-special:first-of-type {
+  border-top: none;
+}
+
+.engagement-row-hero:hover,
+.engagement-row-consult:hover,
+.engagement-row-presence:hover,
+.engagement-row-special:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.10);
+}
+
+/* Tier column: icon next to label, horizontal */
+.engagement-row-consult .engagement-tier,
+.engagement-row-presence .engagement-tier,
+.engagement-row-special .engagement-tier {
+  flex-direction: row;
+  align-items: center;
+  gap: 0.6rem;
+}
+
+/* Inline icon */
+.engagement-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.engagement-icon svg {
+  width: 32px;
+  height: 32px;
+}
+
+.engagement-row-consult .engagement-icon svg {
+  stroke: var(--accent-consult);
+}
+
+.engagement-row-presence .engagement-icon svg {
+  stroke: var(--accent-presence);
+}
+
+.engagement-row-special .engagement-icon svg {
+  stroke: var(--accent-special);
+}
+
+/* Inline "Learn more" link inside CRISIS-READY description */
+.engagement-learn-more {
+  display: inline-block;
+  margin-top: 0.5rem;
+  color: var(--accent-special);
+  font-weight: 500;
+  text-decoration: none;
+  transition: opacity 0.15s ease;
+}
+
+.engagement-learn-more:hover {
+  opacity: 0.8;
+  text-decoration: underline;
+}
+
+/* Mobile: shrink icon + softer padding */
+@media (max-width: 768px) {
+  .engagement-icon svg {
+    width: 24px;
+    height: 24px;
+  }
+
+  .engagement-row-hero,
+  .engagement-row-consult,
+  .engagement-row-presence,
+  .engagement-row-special {
+    padding: 1.25rem;
+  }
 }
